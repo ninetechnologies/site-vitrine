@@ -243,6 +243,14 @@ ul { list-style: none; }
   border-color: var(--blue);
 }
 .form-group textarea { resize: vertical; min-height: 100px; }
+.sub-service-group {
+  max-height: 0; overflow: hidden; opacity: 0;
+  transition: max-height 0.4s ease, opacity 0.3s ease, margin 0.3s ease;
+  margin-top: 0;
+}
+.sub-service-group.visible {
+  max-height: 200px; opacity: 1; margin-top: 16px;
+}
 .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
 .form-success {
   display: none; padding: 16px 20px;
@@ -973,6 +981,12 @@ ul { list-style: none; }
               <option value="Réparation Mobile & PC">R&eacute;paration Mobile &amp; PC</option>
               <option value="Autre">Autre</option>
             </select>
+            <div class="sub-service-group" id="sub-service-wrap">
+              <label for="f-sous-service">Pr&eacute;cisez votre besoin</label>
+              <select id="f-sous-service" name="sous_service">
+                <option value="" disabled selected>S&eacute;lectionnez une option</option>
+              </select>
+            </div>
           </div>
           <div class="form-group"><label for="f-need">Votre besoin</label><textarea id="f-need" placeholder="Décrivez brièvement votre projet ou votre besoin..." rows="4"></textarea></div>
           <button class="btn" type="button" id="form-submit">Envoyer ma demande</button>
@@ -1184,6 +1198,32 @@ ul { list-style: none; }
     });
   }
 
+  // Sub-service dynamic dropdown
+  var subServiceMap = {
+    'Applications Métiers': ['Nouvelle application', 'Évolution app existante', 'Intégration API', 'Devis'],
+    'Site Web Professionnel': ['Création from scratch', 'Refonte', 'Landing page', 'E-commerce'],
+    'Automatisation & IA': ['Automatisation tâches', 'Intégration IA', 'Connexion outils', 'Devis'],
+    'Réparation Mobile & PC': ['Écran cassé', 'Batterie', 'Réinstall Windows', 'Récup données', 'Autre panne']
+  };
+  var serviceSelect = document.getElementById('f-service');
+  var subWrap = document.getElementById('sub-service-wrap');
+  var subSelect = document.getElementById('f-sous-service');
+  serviceSelect.addEventListener('change', function() {
+    var opts = subServiceMap[this.value];
+    if (opts) {
+      subSelect.innerHTML = '<option value="" disabled selected>S\u00e9lectionnez une option</option>';
+      opts.forEach(function(o) {
+        var el = document.createElement('option');
+        el.value = o; el.textContent = o;
+        subSelect.appendChild(el);
+      });
+      subWrap.classList.add('visible');
+    } else {
+      subWrap.classList.remove('visible');
+      subSelect.innerHTML = '<option value="" disabled selected>S\u00e9lectionnez une option</option>';
+    }
+  });
+
   // Form submit via Web3Forms
   var submitBtn = document.getElementById('form-submit');
   var successMsg = document.getElementById('form-success');
@@ -1193,6 +1233,7 @@ ul { list-style: none; }
     var company = document.getElementById('f-company').value.trim();
     var need = document.getElementById('f-need').value.trim();
     var service = document.getElementById('f-service').value || 'Non précisé';
+    var sousService = document.getElementById('f-sous-service').value || '';
     if (!name || !email) { return; }
     submitBtn.textContent = 'Envoi en cours...';
     submitBtn.disabled = true;
@@ -1204,6 +1245,7 @@ ul { list-style: none; }
       email: email,
       Entreprise: company,
       Service: service,
+      sous_service: sousService,
       Besoin: need
     };
     fetch('https://api.web3forms.com/submit', {
@@ -1220,6 +1262,9 @@ ul { list-style: none; }
         document.getElementById('f-company').value = '';
         document.getElementById('f-email').value = '';
         document.getElementById('f-need').value = '';
+        document.getElementById('f-service').selectedIndex = 0;
+        document.getElementById('f-sous-service').innerHTML = '<option value="" disabled selected>S\u00e9lectionnez une option</option>';
+        document.getElementById('sub-service-wrap').classList.remove('visible');
         setTimeout(function() {
           successMsg.classList.remove('visible');
           submitBtn.textContent = 'Envoyer ma demande';
