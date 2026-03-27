@@ -4,368 +4,600 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="description" content="Nine Technologies — Solutions digitales et réparation téléphone & PC à Saint-Gaudens (Occitanie). Applications métiers, sites web, automatisation IA. Changement écran, batterie, récupération données.">
-<link rel="icon" type="image/png" href="favicon.png">
-<link rel="apple-touch-icon" href="apple-touch-icon.png">
 <meta property="og:title" content="Nine Technologies — Solutions digitales sur mesure">
-<meta property="og:description" content="Applications m&eacute;tiers, sites web professionnels, automatisation &amp; IA, r&eacute;paration mobile &amp; PC. Bas&eacute; &agrave; Saint-Gaudens.">
+<meta property="og:description" content="Applications métiers, sites web professionnels, automatisation & IA, réparation mobile & PC. Basé à Saint-Gaudens.">
 <meta property="og:type" content="website">
-<meta property="og:url" content="https://ninetechnologies.vercel.app">
+<meta property="og:url" content="https://ninetechnologies.fr">
 <meta property="og:locale" content="fr_FR">
 <meta property="og:site_name" content="Nine Technologies">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Nine Technologies — Solutions digitales sur mesure">
-<meta name="twitter:description" content="Applications m&eacute;tiers, sites web, automatisation IA, r&eacute;paration mobile &amp; PC. Saint-Gaudens.">
+<meta name="twitter:description" content="Applications métiers, sites web, automatisation IA, réparation mobile & PC. Saint-Gaudens.">
+<link rel="icon" type="image/png" href="favicon.png">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
 <title>Nine Technologies — Solutions digitales sur mesure</title>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  "name": "Nine Technologies",
+  "description": "Solutions digitales sur mesure pour TPE/PME — Saint-Gaudens",
+  "url": "https://ninetechnologies.fr",
+  "telephone": "+33780193096",
+  "email": "ninetechnologies@outlook.fr",
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "Saint-Gaudens",
+    "postalCode": "31800",
+    "addressCountry": "FR"
+  },
+  "areaServed": ["Saint-Gaudens", "Occitanie", "Martinique", "Guadeloupe", "Guyane", "Réunion"],
+  "priceRange": "€€"
+}
+</script>
+
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+
 <style>
+/* ═══════════════════════════════════════════
+   RESET & VARIABLES
+   ═══════════════════════════════════════════ */
 *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
 
 :root {
-  --blue: #1A5FBF;
-  --blue-dark: #144A96;
-  --blue-light: #E8F0FA;
-  --navy: #0D1B2A;
-  --gray-50: #F8F9FA;
-  --gray-100: #F1F3F5;
-  --gray-200: #E9ECEF;
-  --gray-400: #ADB5BD;
-  --gray-600: #6C757D;
-  --gray-800: #343A40;
-  --gray-900: #212529;
-  --white: #FFFFFF;
-  --font: 'DM Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-  --max-w: 1140px;
-  --radius: 6px;
-  --shadow: 0 1px 3px rgba(0,0,0,0.08), 0 4px 12px rgba(0,0,0,0.04);
-  --shadow-lg: 0 4px 12px rgba(0,0,0,0.1), 0 12px 32px rgba(0,0,0,0.06);
+  --nt-bg: #F7F4EF;
+  --nt-accent: #0066FF;
+  --nt-text: #1A1A2E;
+  --nt-secondary: #6B7280;
+  --nt-border: #E5E7EB;
+  --nt-surface: #FFFFFF;
+  --max-w: 1200px;
+  --radius: 8px;
+  --shadow: 0 1px 3px rgba(0,0,0,0.06), 0 6px 16px rgba(0,0,0,0.04);
+  --shadow-lg: 0 4px 12px rgba(0,0,0,0.08), 0 16px 40px rgba(0,0,0,0.06);
+  --font-heading: 'Playfair Display', Georgia, serif;
+  --font-body: 'DM Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
 }
 
 html { scroll-behavior: smooth; font-size: 16px; }
-body { font-family: var(--font); color: var(--gray-900); background: var(--white); line-height: 1.6; -webkit-font-smoothing: antialiased; }
+body {
+  font-family: var(--font-body);
+  color: var(--nt-text);
+  background: var(--nt-bg);
+  line-height: 1.7;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
 img { display: block; max-width: 100%; }
 a { text-decoration: none; color: inherit; }
 ul { list-style: none; }
+h1, h2, h3 { font-family: var(--font-heading); font-weight: 700; line-height: 1.2; }
 
-/* ─── NAV ─── */
+.container { max-width: var(--max-w); margin: 0 auto; padding: 0 24px; }
+
+/* ═══════════════════════════════════════════
+   NAVIGATION
+   ═══════════════════════════════════════════ */
 .nav {
-  position: fixed; top: 0; left: 0; right: 0; z-index: 100;
-  background: rgba(255,255,255,0.85);
-  backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
-  border-bottom: 1px solid var(--gray-200);
-  transition: box-shadow 0.3s;
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 1000;
+  padding: 0 24px;
+  transition: background 0.4s, box-shadow 0.4s, backdrop-filter 0.4s;
 }
-.nav.scrolled { box-shadow: 0 2px 12px rgba(0,0,0,0.08); }
+.nav.scrolled {
+  background: rgba(247, 244, 239, 0.85);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  box-shadow: 0 1px 0 var(--nt-border);
+}
 .nav-inner {
-  max-width: var(--max-w); margin: 0 auto;
-  display: flex; align-items: center; justify-content: space-between;
-  padding: 0 24px; height: 64px;
+  max-width: var(--max-w);
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 72px;
 }
-.nav-logo { height: 144px; width: auto; }
-.nav-logo-placeholder {
-  height: 36px; display: flex; align-items: center;
-  font-weight: 700; font-size: 1.1rem; color: var(--blue);
-  letter-spacing: -0.02em;
-}
+.nav-logo img { height: 100px; width: auto; display: block; }
 .nav-links { display: flex; align-items: center; gap: 32px; }
 .nav-links a {
-  font-size: 0.9rem; font-weight: 500; color: var(--gray-600);
-  transition: color 0.2s;
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: var(--nt-text);
+  position: relative;
+  padding: 4px 0;
+  transition: color 0.3s;
 }
-.nav-links a:hover { color: var(--blue); }
-.nav-cta {
-  display: inline-flex; align-items: center; padding: 9px 20px;
-  background: var(--blue); color: var(--white) !important;
-  border-radius: var(--radius); font-weight: 600; font-size: 0.85rem;
-  transition: background 0.2s;
-}
-.nav-cta:hover { background: var(--blue-dark); }
-
-/* Burger */
-.nav-burger { display: none; flex-direction: column; gap: 5px; cursor: pointer; padding: 4px; background: none; border: none; }
-.nav-burger span { display: block; width: 22px; height: 2px; background: var(--gray-800); border-radius: 2px; transition: 0.3s; }
-
-/* ─── HERO ─── */
-.hero {
-  position: relative; margin-top: 64px;
-  min-height: 520px; display: flex; align-items: center; justify-content: center;
-  background: var(--navy); overflow: hidden;
-}
-.hero::before {
+.nav.at-hero .nav-links a { color: rgba(255,255,255,0.85); }
+.nav.at-hero .nav-links a:hover { color: #fff; }
+.nav-links a::after {
   content: '';
   position: absolute;
+  bottom: -2px; left: 0;
+  width: 0; height: 2px;
+  background: var(--nt-accent);
+  transition: width 0.3s ease;
+}
+.nav-links a:hover::after,
+.nav-links a.active::after { width: 100%; }
+.nav-links a.active::before {
+  content: '';
+  position: absolute;
+  bottom: -8px;
+  left: 50%; transform: translateX(-50%);
+  width: 4px; height: 4px;
+  border-radius: 50%;
+  background: var(--nt-accent);
+}
+.nav-cta {
+  background: var(--nt-accent) !important;
+  color: #fff !important;
+  padding: 10px 24px !important;
+  border-radius: 6px;
+  font-weight: 600 !important;
+  font-size: 0.85rem !important;
+  transition: background 0.3s, transform 0.2s !important;
+}
+.nav-cta::after { display: none !important; }
+.nav-cta::before { display: none !important; }
+.nav-cta:hover { background: #0052cc !important; transform: translateY(-1px); }
+
+/* Burger mobile */
+.burger {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  cursor: pointer;
+  background: none; border: none;
+  padding: 8px;
+  z-index: 1001;
+}
+.burger span {
+  display: block;
+  width: 24px; height: 2px;
+  background: var(--nt-text);
+  transition: transform 0.3s, opacity 0.3s;
+}
+.nav.at-hero .burger span { background: #fff; }
+.burger.open span:nth-child(1) { transform: rotate(45deg) translate(5px, 5px); }
+.burger.open span:nth-child(2) { opacity: 0; }
+.burger.open span:nth-child(3) { transform: rotate(-45deg) translate(5px, -5px); }
+
+.mobile-menu {
+  position: fixed;
+  top: 0; right: -100%;
+  width: 300px; height: 100vh;
+  background: var(--nt-surface);
+  box-shadow: -8px 0 32px rgba(0,0,0,0.1);
+  padding: 100px 32px 32px;
+  transition: right 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  z-index: 999;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.mobile-menu.open { right: 0; }
+.mobile-menu a {
+  font-size: 1.05rem;
+  font-weight: 500;
+  padding: 12px 0;
+  border-bottom: 1px solid var(--nt-border);
+  color: var(--nt-text);
+}
+.mobile-menu .nav-cta-mobile {
+  margin-top: 16px;
+  background: var(--nt-accent);
+  color: #fff;
+  text-align: center;
+  padding: 14px;
+  border-radius: 6px;
+  font-weight: 600;
+  border-bottom: none;
+}
+.mobile-overlay {
+  position: fixed;
   inset: 0;
-  background-image: url('./images/logo.png');
-  background-size: 60%;
-  background-repeat: no-repeat;
-  background-position: center;
-  opacity: 0.07;
-  z-index: 1;
+  background: rgba(0,0,0,0.4);
+  opacity: 0;
   pointer-events: none;
+  transition: opacity 0.4s;
+  z-index: 998;
 }
-.hero-img {
-  position: absolute; inset: 0; width: 100%; height: 100%;
-  object-fit: cover; opacity: 0.35;
+.mobile-overlay.open { opacity: 1; pointer-events: auto; }
+
+@media (max-width: 768px) {
+  .nav-links { display: none; }
+  .burger { display: flex; }
 }
-.hero-overlay {
-  position: absolute; inset: 0;
-  background: linear-gradient(180deg, rgba(13,27,42,0.5) 0%, rgba(13,27,42,0.8) 100%);
+
+/* ═══════════════════════════════════════════
+   HERO
+   ═══════════════════════════════════════════ */
+.hero {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--nt-text);
+  overflow: hidden;
+  text-align: center;
+  padding: 120px 24px 80px;
+}
+.hero-particles {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+}
+.hero-particles svg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
 }
 .hero-content {
-  position: relative; z-index: 2; text-align: center;
-  max-width: 720px; padding: 60px 24px;
+  position: relative;
+  z-index: 2;
+  max-width: 800px;
 }
-.hero-content h1 {
-  font-size: 2.6rem; font-weight: 700; color: var(--white);
-  line-height: 1.2; margin-bottom: 20px; letter-spacing: -0.02em;
+.hero-logo {
+  height: 280px; width: auto;
+  display: block;
+  margin: 0 auto 32px;
+  animation: logoReveal 1.4s cubic-bezier(0.16, 1, 0.3, 1) forwards;
 }
-.hero-content p {
-  font-size: 1.1rem; color: rgba(255,255,255,0.8);
-  line-height: 1.7; margin-bottom: 32px;
+@keyframes logoReveal {
+  from {
+    opacity: 0;
+    transform: scale(0.85);
+    filter: drop-shadow(0 0 0px rgba(0,102,255,0));
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+    filter: drop-shadow(0 0 40px rgba(0,102,255,0.6))
+            drop-shadow(0 0 80px rgba(0,102,255,0.3));
+  }
 }
-.btn {
-  display: inline-flex; align-items: center; padding: 14px 32px;
-  background: var(--blue); color: var(--white);
-  border-radius: var(--radius); font-weight: 600; font-size: 0.95rem;
-  border: none; cursor: pointer; transition: background 0.2s, transform 0.15s;
-}
-.btn:hover { background: var(--blue-dark); transform: translateY(-1px); }
-.btn-outline {
-  background: transparent; border: 2px solid var(--blue); color: var(--blue);
-}
-.btn-outline:hover { background: var(--blue); color: var(--white); }
-
-/* ─── SECTIONS ─── */
-.section { padding: 80px 24px; }
-.section-inner { max-width: var(--max-w); margin: 0 auto; }
-.section-header { text-align: center; margin-bottom: 56px; }
-.section-header h2 {
-  font-size: 2rem; font-weight: 700; color: var(--gray-900);
-  margin-bottom: 12px; letter-spacing: -0.02em;
-}
-.section-header p { font-size: 1.05rem; color: var(--gray-600); max-width: 560px; margin: 0 auto; }
-.section-alt { background: var(--gray-50); }
-.section-line { border-top: 1px solid rgba(255,255,255,0.1); }
-
-/* ─── SERVICES ─── */
-.services-grid {
-  display: grid; grid-template-columns: repeat(2, 1fr); gap: 28px;
-}
-.service-card {
-  background: var(--white); border: 1px solid var(--gray-200);
-  border-radius: 8px; overflow: hidden;
-  transition: box-shadow 0.25s, transform 0.2s;
-}
-.service-card:hover { box-shadow: var(--shadow-lg); transform: translateY(-3px); }
-.service-card-img {
-  width: 100%; height: 200px; object-fit: cover;
-  background: var(--gray-100);
-}
-.service-card-body { padding: 28px 24px; }
-.service-card-icon {
-  width: 44px; height: 44px; border-radius: 8px;
-  background: var(--blue-light); display: flex; align-items: center; justify-content: center;
+.hero h1 {
+  color: #fff;
+  font-size: clamp(2.5rem, 6vw, 5rem);
   margin-bottom: 16px;
+  animation: heroFadeUp 1s ease-out 0.3s both;
 }
-.service-card-icon svg { width: 22px; height: 22px; color: var(--blue); }
-.service-card-body h3 {
-  font-size: 1.15rem; font-weight: 700; color: var(--gray-900);
-  margin-bottom: 10px;
+.hero-line {
+  width: 60px; height: 3px;
+  background: var(--nt-accent);
+  margin: 0 auto 24px;
+  border-radius: 2px;
+  animation: heroFadeUp 1s ease-out 0.5s both;
 }
-.service-card-body p {
-  font-size: 0.92rem; color: var(--gray-600); line-height: 1.65;
+.hero-subtitle {
+  color: rgba(255,255,255,0.7);
+  font-size: clamp(1rem, 2vw, 1.25rem);
+  margin-bottom: 8px;
+  animation: heroFadeUp 1s ease-out 0.6s both;
+}
+.hero-accroche {
+  color: rgba(255,255,255,0.5);
+  font-size: 0.95rem;
+  margin-bottom: 40px;
+  animation: heroFadeUp 1s ease-out 0.7s both;
+}
+@keyframes heroFadeUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.hero-ctas {
+  display: flex;
+  gap: 16px;
+  justify-content: center;
+  flex-wrap: wrap;
+  animation: heroFadeUp 1s ease-out 0.9s both;
+}
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: var(--nt-accent);
+  color: #fff;
+  padding: 14px 32px;
+  border-radius: 6px;
+  font-weight: 600;
+  font-size: 0.95rem;
+  border: none; cursor: pointer;
+  transition: background 0.3s, transform 0.2s;
+}
+.btn-primary:hover { background: #0052cc; transform: translateY(-2px); }
+.btn-outline {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: transparent;
+  color: #fff;
+  padding: 14px 32px;
+  border-radius: 6px;
+  font-weight: 600;
+  font-size: 0.95rem;
+  border: 1.5px solid rgba(255,255,255,0.3);
+  cursor: pointer;
+  transition: border-color 0.3s, background 0.3s, transform 0.2s;
+}
+.btn-outline:hover { border-color: #fff; background: rgba(255,255,255,0.05); transform: translateY(-2px); }
+
+/* ═══════════════════════════════════════════
+   SECTION COMMONS
+   ═══════════════════════════════════════════ */
+.section { padding: 100px 24px; }
+.section-header { text-align: center; max-width: 600px; margin: 0 auto 64px; }
+.section-header h2 {
+  font-size: clamp(1.8rem, 4vw, 2.8rem);
+  color: var(--nt-text);
+  margin-bottom: 12px;
+}
+.section-header p {
+  color: var(--nt-secondary);
+  font-size: 1.05rem;
+}
+
+/* Scroll reveal */
+.reveal {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.7s ease, transform 0.7s ease;
+}
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ═══════════════════════════════════════════
+   SERVICES
+   ═══════════════════════════════════════════ */
+.services-grid {
+  max-width: var(--max-w);
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px;
+}
+@media (max-width: 1024px) { .services-grid { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 768px) { .services-grid { grid-template-columns: 1fr; max-width: 480px; } }
+
+.service-card {
+  background: var(--nt-surface);
+  border-radius: var(--radius);
+  padding: 36px 28px;
+  border-top: 3px solid var(--nt-accent);
+  box-shadow: var(--shadow);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  display: flex;
+  flex-direction: column;
+}
+.service-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-lg);
+}
+.service-num {
+  font-family: var(--font-heading);
+  font-size: 2.5rem;
+  color: var(--nt-border);
+  font-weight: 700;
+  margin-bottom: 20px;
+  line-height: 1;
+}
+.service-icon {
+  width: 52px; height: 52px;
+  background: rgba(0,102,255,0.1);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+.service-icon svg { width: 24px; height: 24px; color: var(--nt-accent); }
+.service-card h3 {
+  font-size: 1.2rem;
+  margin-bottom: 12px;
+  color: var(--nt-text);
+}
+.service-card p {
+  color: var(--nt-secondary);
+  font-size: 0.92rem;
+  line-height: 1.7;
+  flex: 1;
   margin-bottom: 20px;
 }
 .service-link {
-  display: inline-flex; align-items: center; gap: 6px;
-  font-size: 0.88rem; font-weight: 600; color: var(--blue);
-  transition: gap 0.2s;
+  color: var(--nt-accent);
+  font-weight: 600;
+  font-size: 0.9rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  transition: gap 0.3s;
 }
-.service-link:hover { gap: 10px; }
-.service-link svg { width: 16px; height: 16px; }
+.service-link:hover { gap: 8px; }
 
-/* ─── ABOUT ─── */
-.about-grid {
-  display: grid; grid-template-columns: 1fr 1.3fr; gap: 56px; align-items: center;
-}
-.about-portrait {
-  width: 100%; aspect-ratio: 4/5; object-fit: cover;
-  border-radius: 8px; background: var(--gray-100);
-}
-.about-text h3 {
-  font-size: 1.5rem; font-weight: 700; margin-bottom: 20px;
-  color: #FFFFFF; letter-spacing: -0.01em;
-}
-.about-text p {
-  font-size: 0.95rem; color: rgba(255,255,255,0.8); line-height: 1.75;
-  margin-bottom: 16px;
-}
-
-/* Valeurs */
-.values-row {
-  display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px;
-  margin-top: 36px;
-}
-.value-item {
-  text-align: center; padding: 28px 16px;
-  border: 1px solid rgba(255,255,255,0.15); border-radius: 8px;
-  background: rgba(255,255,255,0.05);
-}
-.value-item .value-icon {
-  width: 48px; height: 48px; margin: 0 auto 14px;
-  border-radius: 50%; background: rgba(26,95,191,0.2);
-  display: flex; align-items: center; justify-content: center;
-}
-.value-item .value-icon svg { width: 22px; height: 22px; color: #5B9BF0; }
-.value-item h4 { font-size: 1rem; font-weight: 700; color: #FFFFFF; margin-bottom: 4px; }
-.value-item p { font-size: 0.85rem; color: rgba(255,255,255,0.6); }
-
-/* ─── CONTACT ─── */
-.contact-grid {
-  display: grid; grid-template-columns: 1fr 1fr; gap: 48px;
-}
-.contact-info h3 {
-  font-size: 1.3rem; font-weight: 700; margin-bottom: 24px; color: var(--gray-900);
-}
-.contact-item {
-  display: flex; align-items: flex-start; gap: 14px;
-  margin-bottom: 20px;
-}
-.contact-item-icon {
-  width: 40px; height: 40px; flex-shrink: 0; border-radius: 8px;
-  background: var(--blue-light); display: flex; align-items: center; justify-content: center;
-}
-.contact-item-icon svg { width: 18px; height: 18px; color: var(--blue); }
-.contact-item-text span { display: block; font-size: 0.82rem; color: var(--gray-400); font-weight: 500; text-transform: uppercase; letter-spacing: 0.04em; }
-.contact-item-text p { font-size: 0.95rem; color: var(--gray-800); font-weight: 500; margin-top: 2px; }
-
-.contact-form { display: flex; flex-direction: column; gap: 16px; }
-.form-group label {
-  display: block; font-size: 0.82rem; font-weight: 600; color: var(--gray-800);
-  margin-bottom: 6px; text-transform: uppercase; letter-spacing: 0.03em;
-}
-.form-group input, .form-group textarea, .form-group select {
-  width: 100%; padding: 12px 14px;
-  border: 1px solid var(--gray-200); border-radius: var(--radius);
-  font-family: var(--font); font-size: 0.92rem; color: var(--gray-900);
-  background: var(--white); transition: border-color 0.2s;
-  outline: none;
-}
-.form-group input:focus, .form-group textarea:focus, .form-group select:focus {
-  border-color: var(--blue);
-}
-.form-group textarea { resize: vertical; min-height: 100px; }
-.sub-service-group {
-  max-height: 0; overflow: hidden; opacity: 0;
-  transition: max-height 0.4s ease, opacity 0.3s ease, margin 0.3s ease;
-  margin-top: 0;
-}
-.sub-service-group.visible {
-  max-height: 200px; opacity: 1; margin-top: 16px;
-}
-.form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
-.form-success {
-  display: none; padding: 16px 20px;
-  background: #E8F5E9; border: 1px solid #A5D6A7; border-radius: var(--radius);
-  color: #2E7D32; font-weight: 500; font-size: 0.92rem;
+/* ═══════════════════════════════════════════
+   STATS
+   ═══════════════════════════════════════════ */
+.stats { background: var(--nt-bg); }
+.stats-grid {
+  max-width: var(--max-w);
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 32px;
   text-align: center;
 }
-.form-success.visible { display: block; }
+@media (max-width: 768px) { .stats-grid { grid-template-columns: repeat(2, 1fr); gap: 40px; } }
+.stat-item {}
+.stat-number {
+  font-family: var(--font-heading);
+  font-size: clamp(2.5rem, 5vw, 4rem);
+  font-weight: 700;
+  color: var(--nt-text);
+  line-height: 1;
+}
+.stat-suffix {
+  font-family: var(--font-heading);
+  font-size: clamp(1.2rem, 2vw, 1.6rem);
+  color: var(--nt-accent);
+  font-weight: 700;
+  vertical-align: super;
+}
+.stat-label {
+  color: var(--nt-secondary);
+  font-size: 0.95rem;
+  margin-top: 8px;
+}
 
-/* ─── FOOTER ─── */
-.footer {
-  background: var(--navy); color: rgba(255,255,255,0.6);
-  padding: 48px 24px 32px;
+/* ═══════════════════════════════════════════
+   RÉPARATION
+   ═══════════════════════════════════════════ */
+.reparation { background: var(--nt-surface); }
+.reparation-intro {
+  max-width: 720px;
+  margin: -32px auto 48px;
+  text-align: center;
+  color: var(--nt-secondary);
+  font-size: 1rem;
+  line-height: 1.8;
 }
-.footer-inner {
-  max-width: var(--max-w); margin: 0 auto;
-  display: flex; align-items: center; justify-content: space-between;
-  flex-wrap: wrap; gap: 16px;
+.repair-grid {
+  max-width: var(--max-w);
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px;
 }
-.footer-logo { height: 28px; opacity: 0.8; }
-.footer-logo-placeholder { font-weight: 700; font-size: 0.95rem; color: rgba(255,255,255,0.8); }
-.footer-text { font-size: 0.82rem; }
-.footer-links { display: flex; gap: 24px; }
-.footer-links a { font-size: 0.82rem; color: rgba(255,255,255,0.5); transition: color 0.2s; }
-.footer-links a:hover { color: rgba(255,255,255,0.9); }
-.footer-legal { 
-  width: 100%; text-align: center; margin-top: 12px; padding-top: 16px;
-  border-top: 1px solid rgba(255,255,255,0.1);
-  display: flex; justify-content: center; gap: 20px; flex-wrap: wrap;
-}
-.footer-legal a {
-  font-size: 0.78rem; color: rgba(255,255,255,0.4);
-  transition: color 0.2s; cursor: pointer;
-}
-.footer-legal a:hover { color: rgba(255,255,255,0.8); }
+@media (max-width: 1024px) { .repair-grid { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 768px) { .repair-grid { grid-template-columns: 1fr; max-width: 480px; } }
 
-/* ─── MODALE JURIDIQUE ─── */
-.legal-overlay {
-  display: none; position: fixed; inset: 0; z-index: 1000;
-  background: rgba(13,27,42,0.6); backdrop-filter: blur(4px);
-  justify-content: center; align-items: flex-start;
-  padding: 40px 20px; overflow-y: auto;
+.repair-card {
+  background: var(--nt-bg);
+  border-radius: var(--radius);
+  padding: 32px 24px;
+  text-align: center;
+  box-shadow: var(--shadow);
+  transition: transform 0.3s, box-shadow 0.3s;
 }
-.legal-overlay.active { display: flex; }
+.repair-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-lg); }
+.repair-card h3 { font-size: 1.1rem; margin-bottom: 8px; }
+.repair-price {
+  font-family: var(--font-heading);
+  font-size: 1.8rem;
+  color: var(--nt-accent);
+  font-weight: 700;
+  margin-bottom: 4px;
+}
+.repair-badge {
+  display: inline-block;
+  background: rgba(0,102,255,0.1);
+  color: var(--nt-accent);
+  font-size: 0.8rem;
+  font-weight: 600;
+  padding: 4px 12px;
+  border-radius: 20px;
+  margin-bottom: 16px;
+}
+.repair-card p { color: var(--nt-secondary); font-size: 0.9rem; line-height: 1.6; }
 
-.legal-modal {
-  background: var(--white); border-radius: 10px;
-  max-width: 760px; width: 100%;
-  max-height: calc(100vh - 80px); overflow-y: auto;
-  box-shadow: 0 20px 60px rgba(0,0,0,0.25);
+.repair-cta {
+  text-align: center;
+  margin-top: 56px;
+}
+.repair-cta p {
+  color: var(--nt-secondary);
+  margin-bottom: 20px;
+  font-size: 1rem;
+}
+.btn-primary-light {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: var(--nt-accent);
+  color: #fff;
+  padding: 14px 32px;
+  border-radius: 6px;
+  font-weight: 600;
+  font-size: 0.95rem;
+  border: none; cursor: pointer;
+  transition: background 0.3s, transform 0.2s;
+}
+.btn-primary-light:hover { background: #0052cc; transform: translateY(-2px); }
+
+/* ═══════════════════════════════════════════
+   DOM-TOM / OUTRE-MER
+   ═══════════════════════════════════════════ */
+.outremer {
+  background: var(--nt-text);
   position: relative;
+  overflow: hidden;
 }
-.legal-modal-header {
-  position: sticky; top: 0; z-index: 2;
-  background: var(--white); padding: 24px 32px 16px;
-  border-bottom: 1px solid var(--gray-200);
-  display: flex; align-items: center; justify-content: space-between;
+.outremer-pattern {
+  position: absolute;
+  inset: 0;
+  opacity: 0.05;
+  background-image: repeating-linear-gradient(
+    45deg,
+    transparent,
+    transparent 20px,
+    rgba(255,255,255,0.3) 20px,
+    rgba(255,255,255,0.3) 22px
+  ),
+  repeating-linear-gradient(
+    -45deg,
+    transparent,
+    transparent 20px,
+    rgba(255,255,255,0.3) 20px,
+    rgba(255,255,255,0.3) 22px
+  );
 }
-.legal-modal-header h2 {
-  font-size: 1.3rem; font-weight: 700; color: var(--gray-900);
+.outremer .section-header h2 { color: #fff; }
+.outremer .section-header p { color: rgba(255,255,255,0.6); }
+.outremer-content {
+  position: relative;
+  max-width: 720px;
+  margin: 0 auto;
+  text-align: center;
 }
-.legal-close {
-  width: 36px; height: 36px; border-radius: 50%;
-  border: none; background: var(--gray-100); cursor: pointer;
-  display: flex; align-items: center; justify-content: center;
-  transition: background 0.2s; flex-shrink: 0;
+.outremer-content > p {
+  color: rgba(255,255,255,0.7);
+  font-size: 1.05rem;
+  line-height: 1.8;
+  margin-bottom: 32px;
 }
-.legal-close:hover { background: var(--gray-200); }
-.legal-close svg { width: 18px; height: 18px; color: var(--gray-600); }
+.outremer-badge {
+  display: inline-block;
+  background: rgba(0,102,255,0.2);
+  color: var(--nt-accent);
+  font-weight: 600;
+  font-size: 0.9rem;
+  padding: 8px 24px;
+  border-radius: 30px;
+  margin-bottom: 40px;
+}
+.outremer-flags {
+  display: flex;
+  justify-content: center;
+  gap: 24px;
+  flex-wrap: wrap;
+}
+.outremer-flag {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+}
+.outremer-flag svg { width: 48px; height: 32px; border-radius: 4px; }
+.outremer-flag span { color: rgba(255,255,255,0.5); font-size: 0.8rem; }
 
-.legal-modal-body {
-  padding: 28px 32px 36px;
-}
-.legal-modal-body h3 {
-  font-size: 1.05rem; font-weight: 700; color: var(--gray-900);
-  margin: 28px 0 10px; padding-top: 16px;
-  border-top: 1px solid var(--gray-100);
-}
-.legal-modal-body h3:first-child { margin-top: 0; padding-top: 0; border-top: none; }
-.legal-modal-body p {
-  font-size: 0.88rem; color: var(--gray-600); line-height: 1.7;
-  margin-bottom: 10px;
-}
-.legal-modal-body .legal-update {
-  font-size: 0.8rem; color: var(--gray-400); margin-bottom: 20px;
-  font-style: italic;
-}
-
-
-
-/* ─── WHATSAPP BUTTON ─── */
-.wa-btn {
-  position: fixed; bottom: 24px; right: 24px; z-index: 90;
-  width: 56px; height: 56px; border-radius: 50%;
-  background: #25D366; border: none; cursor: pointer;
-  display: flex; align-items: center; justify-content: center;
-  box-shadow: 0 4px 12px rgba(37,211,102,0.4);
-  transition: transform 0.2s, box-shadow 0.2s;
-}
-.wa-btn:hover { transform: scale(1.1); box-shadow: 0 6px 20px rgba(37,211,102,0.5); }
-.wa-btn svg { width: 28px; height: 28px; fill: #FFFFFF; }
-
-/* ─── ANTILLES SECTION ─── */
 .antilles-section {
   position: relative; overflow: hidden;
   background: linear-gradient(135deg, #D4380D 0%, #CF1322 25%, #D4380D 50%, #CF1322 75%, #D4380D 100%);
@@ -400,937 +632,1389 @@ ul { list-style: none; }
     );
   opacity: 0.4;
 }
-.antilles-inner {
-  position: relative; z-index: 2;
-  max-width: var(--max-w); margin: 0 auto;
-  display: grid; grid-template-columns: 1fr 1fr; gap: 48px; align-items: center;
+.antilles-flags-sphere {
+  display: flex;
+  justify-content: center;
+  margin-top: 16px;
 }
 
-.antilles-section, .antilles-section * { color: #FFFFFF; }
-.antilles-section .antilles-text p { color: rgba(255,255,255,0.9); }
-.antilles-section .antilles-tag { color: #FFFFFF; }
-.antilles-text h2 {
-  font-size: 1.8rem; font-weight: 700; color: #FFFFFF;
-  margin-bottom: 16px; line-height: 1.25;
+/* ═══════════════════════════════════════════
+   À PROPOS
+   ═══════════════════════════════════════════ */
+.about { background: var(--nt-bg); }
+.about-content {
+  max-width: var(--max-w);
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 64px;
+  align-items: center;
 }
-.antilles-text p {
-  font-size: 0.95rem; color: rgba(255,255,255,0.9); line-height: 1.75;
-  margin-bottom: 14px;
+@media (max-width: 768px) {
+  .about-content { grid-template-columns: 1fr; gap: 40px; }
 }
-.antilles-tag {
-  display: inline-block; padding: 6px 16px; margin-top: 8px;
-  background: rgba(255,255,255,0.15); border: 1px solid rgba(255,255,255,0.3);
-  border-radius: 20px; font-size: 0.82rem; font-weight: 600;
-  color: #FFFFFF; letter-spacing: 0.02em;
+.about-text p {
+  color: var(--nt-secondary);
+  font-size: 1rem;
+  line-height: 1.8;
+  margin-bottom: 16px;
 }
+.about-text p:last-child { margin-bottom: 0; }
+.about-portrait {
+  width: 100%;
+  aspect-ratio: 4/5;
+  object-fit: cover;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-lg);
+}
+.about-values {
+  max-width: var(--max-w);
+  margin: 64px auto 0;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+@media (max-width: 768px) { .about-values { grid-template-columns: 1fr; max-width: 480px; } }
+.value-card {
+  text-align: center;
+  padding: 36px 24px;
+  background: var(--nt-surface);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+}
+.value-card h3 { font-size: 1.2rem; margin-bottom: 8px; }
+.value-card p { color: var(--nt-secondary); font-size: 0.92rem; }
 
-.antilles-flags-sphere { text-align: center; padding: 10px 0; }
-.antilles-visual {
-  display: flex; align-items: center; justify-content: center;
+/* ═══════════════════════════════════════════
+   BLOG
+   ═══════════════════════════════════════════ */
+.blog { background: var(--nt-surface); }
+.blog-grid {
+  max-width: var(--max-w);
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
 }
-.antilles-map { text-align: center; }
-@media (max-width: 680px) {
-  .antilles-inner { grid-template-columns: 1fr; text-align: center; }
-  
-.antilles-flags-sphere { text-align: center; padding: 10px 0; }
-.antilles-visual { order: -1; margin-bottom: 16px; }
-  
-.antilles-section, .antilles-section * { color: #FFFFFF; }
-.antilles-section .antilles-text p { color: rgba(255,255,255,0.9); }
-.antilles-section .antilles-tag { color: #FFFFFF; }
-.antilles-text h2 { font-size: 1.5rem; }
-}
-
-/* ─── RÉPARATION ─── */
-.repair-section { background: var(--white); }
-.repair-intro { max-width: 720px; margin: 0 auto 48px; text-align: center; }
-.repair-intro p { font-size: 0.95rem; color: var(--gray-600); line-height: 1.7; }
-.pricing-grid {
-  display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px;
-}
-.pricing-card {
-  background: var(--gray-50); border: 1px solid var(--gray-200);
-  border-radius: 10px; padding: 28px 22px; text-align: center;
-  transition: box-shadow 0.25s, transform 0.2s;
-}
-.pricing-card:hover { box-shadow: var(--shadow-lg); transform: translateY(-3px); }
-.pricing-card-icon {
-  width: 52px; height: 52px; border-radius: 50%;
-  background: var(--blue-light); display: flex; align-items: center; justify-content: center;
-  margin: 0 auto 16px;
-}
-.pricing-card-icon svg { width: 24px; height: 24px; color: var(--blue); }
-.pricing-card h3 { font-size: 1rem; font-weight: 700; color: var(--gray-900); margin-bottom: 8px; }
-.pricing-card .price { font-size: 1.5rem; font-weight: 700; color: var(--blue); margin-bottom: 6px; }
-.pricing-card .price-note { font-size: 0.8rem; color: var(--gray-400); margin-bottom: 14px; }
-.pricing-card p.price-desc { font-size: 0.85rem; color: var(--gray-600); line-height: 1.6; }
-.repair-cta { text-align: center; margin-top: 40px; }
-.repair-cta p { font-size: 0.92rem; color: var(--gray-600); margin-bottom: 16px; }
-
-/* ─── BLOG PREVIEW ─── */
-.blog-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+@media (max-width: 768px) { .blog-grid { grid-template-columns: 1fr; max-width: 480px; } }
 .blog-card {
-  background: var(--white); border: 1px solid var(--gray-200);
-  border-radius: 8px; padding: 28px 24px;
-  transition: box-shadow 0.25s, transform 0.2s;
+  background: var(--nt-bg);
+  border-radius: var(--radius);
+  padding: 32px 28px;
+  transition: transform 0.3s, box-shadow 0.3s;
+  display: flex;
+  flex-direction: column;
 }
-.blog-card:hover { box-shadow: var(--shadow-lg); transform: translateY(-3px); }
-.blog-card-tag {
-  display: inline-block; font-size: 0.72rem; font-weight: 600; text-transform: uppercase;
-  letter-spacing: 0.06em; color: var(--blue); background: var(--blue-light);
-  padding: 3px 10px; border-radius: 4px; margin-bottom: 14px;
+.blog-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-lg); }
+.blog-tag {
+  display: inline-block;
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--nt-accent);
+  background: rgba(0,102,255,0.1);
+  padding: 4px 12px;
+  border-radius: 4px;
+  margin-bottom: 16px;
+  align-self: flex-start;
 }
-.blog-card h3 { font-size: 1.05rem; font-weight: 700; color: var(--gray-900); margin-bottom: 10px; line-height: 1.4; }
-.blog-card p { font-size: 0.88rem; color: var(--gray-600); line-height: 1.65; margin-bottom: 16px; }
-.blog-card-link { font-size: 0.85rem; font-weight: 600; color: var(--blue); }
-.blog-card-link:hover { text-decoration: underline; }
-.blog-more { text-align: center; margin-top: 40px; }
+.blog-card h3 {
+  font-size: 1.15rem;
+  margin-bottom: 12px;
+  line-height: 1.4;
+}
+.blog-card p { color: var(--nt-secondary); font-size: 0.9rem; flex: 1; margin-bottom: 20px; }
+.blog-link {
+  color: var(--nt-accent);
+  font-weight: 600;
+  font-size: 0.9rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  transition: gap 0.3s;
+}
+.blog-link:hover { gap: 8px; }
+.blog-more {
+  text-align: center;
+  margin-top: 48px;
+}
+.btn-outline-dark {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: transparent;
+  color: var(--nt-text);
+  padding: 14px 32px;
+  border-radius: 6px;
+  font-weight: 600;
+  font-size: 0.95rem;
+  border: 1.5px solid var(--nt-border);
+  cursor: pointer;
+  transition: border-color 0.3s, background 0.3s;
+}
+.btn-outline-dark:hover { border-color: var(--nt-accent); color: var(--nt-accent); }
 
-@media (max-width: 900px) {
-  .pricing-grid { grid-template-columns: repeat(2, 1fr); }
-  .blog-grid { grid-template-columns: 1fr; max-width: 480px; margin: 0 auto; }
+/* ═══════════════════════════════════════════
+   CONTACT
+   ═══════════════════════════════════════════ */
+.contact { background: var(--nt-bg); }
+.contact-grid {
+  max-width: var(--max-w);
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1.3fr;
+  gap: 64px;
+  align-items: start;
 }
-@media (max-width: 560px) {
-  .pricing-grid { grid-template-columns: 1fr; max-width: 340px; margin: 0 auto; }
+@media (max-width: 768px) {
+  .contact-grid { grid-template-columns: 1fr; gap: 40px; }
+}
+.contact-info h3 {
+  font-size: 1.3rem;
+  margin-bottom: 24px;
+}
+.contact-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+  margin-bottom: 20px;
+}
+.contact-item-icon {
+  width: 44px; height: 44px;
+  background: rgba(0,102,255,0.1);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+.contact-item-icon svg { width: 20px; height: 20px; color: var(--nt-accent); }
+.contact-item-text { font-size: 0.95rem; color: var(--nt-secondary); }
+.contact-item-text strong { color: var(--nt-text); font-weight: 600; display: block; margin-bottom: 2px; }
+
+.contact-form {
+  background: var(--nt-surface);
+  border-radius: var(--radius);
+  padding: 40px;
+  box-shadow: var(--shadow);
+}
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  margin-bottom: 16px;
+}
+@media (max-width: 768px) { .form-row { grid-template-columns: 1fr; } }
+.form-group { margin-bottom: 16px; }
+.form-group label {
+  display: block;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--nt-text);
+  margin-bottom: 6px;
+}
+.form-group input,
+.form-group select,
+.form-group textarea {
+  width: 100%;
+  padding: 12px 16px;
+  border: 1.5px solid var(--nt-border);
+  border-radius: 6px;
+  font-family: var(--font-body);
+  font-size: 0.95rem;
+  color: var(--nt-text);
+  background: var(--nt-bg);
+  transition: border-color 0.3s;
+  outline: none;
+}
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+  border-color: var(--nt-accent);
+}
+.form-group textarea { resize: vertical; min-height: 100px; }
+.form-submit {
+  width: 100%;
+  padding: 14px;
+  background: var(--nt-accent);
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  font-family: var(--font-body);
+  font-weight: 600;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+.form-submit:hover { background: #0052cc; }
+.form-submit:disabled { opacity: 0.6; cursor: not-allowed; }
+.form-message {
+  margin-top: 16px;
+  padding: 12px 16px;
+  border-radius: 6px;
+  font-size: 0.9rem;
+  display: none;
+}
+.form-message.success {
+  display: block;
+  background: rgba(16, 185, 129, 0.1);
+  color: #059669;
+}
+.form-message.error {
+  display: block;
+  background: rgba(239, 68, 68, 0.1);
+  color: #DC2626;
 }
 
-/* ─── SCROLL ANIMATIONS ─── */
-.reveal {
-  opacity: 0; transform: translateY(30px);
-  transition: opacity 0.6s ease, transform 0.6s ease;
+/* ═══════════════════════════════════════════
+   FOOTER
+   ═══════════════════════════════════════════ */
+.footer {
+  background: var(--nt-text);
+  padding: 64px 24px 32px;
+  border-top: 3px solid var(--nt-accent);
 }
-.reveal.visible { opacity: 1; transform: translateY(0); }
-.reveal-delay-1 { transition-delay: 0.1s; }
-.reveal-delay-2 { transition-delay: 0.2s; }
-.reveal-delay-3 { transition-delay: 0.3s; }
+.footer-grid {
+  max-width: var(--max-w);
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1.5fr 1fr 1fr;
+  gap: 48px;
+  margin-bottom: 48px;
+}
+@media (max-width: 768px) { .footer-grid { grid-template-columns: 1fr; gap: 32px; } }
+.footer-brand img {
+  height: 40px;
+  width: auto;
+  filter: brightness(0) invert(1);
+  margin-bottom: 16px;
+}
+.footer-brand p {
+  color: rgba(255,255,255,0.5);
+  font-size: 0.9rem;
+  line-height: 1.6;
+}
+.footer-col h4 {
+  font-family: var(--font-body);
+  color: #fff;
+  font-size: 0.85rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin-bottom: 16px;
+}
+.footer-col a {
+  display: block;
+  color: rgba(255,255,255,0.5);
+  font-size: 0.9rem;
+  padding: 4px 0;
+  transition: color 0.3s;
+}
+.footer-col a:hover { color: #fff; }
+.footer-bottom {
+  max-width: var(--max-w);
+  margin: 0 auto;
+  padding-top: 24px;
+  border-top: 1px solid rgba(255,255,255,0.1);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+.footer-bottom p {
+  color: rgba(255,255,255,0.4);
+  font-size: 0.8rem;
+}
+.footer-legal {
+  display: flex;
+  gap: 20px;
+}
+.footer-legal button {
+  background: none; border: none;
+  color: rgba(255,255,255,0.4);
+  font-size: 0.8rem;
+  font-family: var(--font-body);
+  cursor: pointer;
+  transition: color 0.3s;
+}
+.footer-legal button:hover { color: #fff; }
 
-/* ─── TESTIMONIALS ─── */
-.testimonials-placeholder {
-  text-align: center; padding: 40px 24px;
-  border: 2px dashed var(--gray-200); border-radius: 12px;
-  color: var(--gray-400); font-size: 0.92rem;
-  max-width: 600px; margin: 0 auto;
+/* ═══════════════════════════════════════════
+   WHATSAPP BUTTON
+   ═══════════════════════════════════════════ */
+.whatsapp-btn {
+  position: fixed;
+  bottom: 24px; right: 24px;
+  width: 60px; height: 60px;
+  background: #25D366;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 16px rgba(37, 211, 102, 0.4);
+  z-index: 900;
+  transition: transform 0.3s;
+  animation: whatsappPulse 2s ease-in-out infinite;
 }
-/* ─── RESPONSIVE ─── */
-@media (max-width: 900px) {
-  .services-grid { grid-template-columns: 1fr; max-width: 480px; margin: 0 auto; }
-  .about-grid { grid-template-columns: 1fr; text-align: center; }
-  .about-portrait { max-width: 320px; margin: 0 auto; aspect-ratio: 1; }
-  .contact-grid { grid-template-columns: 1fr; }
-  .values-row { grid-template-columns: 1fr; max-width: 320px; margin: 36px auto 0; }
-  .form-row { grid-template-columns: 1fr; }
+.whatsapp-btn:hover { transform: scale(1.1); animation: none; }
+.whatsapp-btn svg { width: 30px; height: 30px; fill: #fff; }
+.whatsapp-tooltip {
+  position: absolute;
+  right: 72px; top: 50%;
+  transform: translateY(-50%);
+  background: var(--nt-surface);
+  color: var(--nt-text);
+  font-size: 0.85rem;
+  font-weight: 500;
+  padding: 8px 16px;
+  border-radius: 6px;
+  box-shadow: var(--shadow);
+  white-space: nowrap;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s;
+}
+.whatsapp-btn:hover .whatsapp-tooltip { opacity: 1; }
+@keyframes whatsappPulse {
+  0%, 100% { box-shadow: 0 4px 16px rgba(37, 211, 102, 0.4); }
+  50% { box-shadow: 0 4px 24px rgba(37, 211, 102, 0.6); }
 }
 
-@media (max-width: 680px) {
-  .nav-links { 
-    display: none; flex-direction: column; gap: 0;
-    position: absolute; top: 64px; left: 0; right: 0;
-    background: var(--white); border-bottom: 1px solid var(--gray-200);
-    box-shadow: 0 8px 24px rgba(0,0,0,0.08);
-  }
-  .nav-links.open { display: flex; }
-  .nav-links a { padding: 14px 24px; width: 100%; border-top: 1px solid var(--gray-100); }
-  .nav-links .nav-cta { margin: 12px 24px; width: calc(100% - 48px); justify-content: center; }
-  .nav-burger { display: flex; }
-  .hero-content h1 { font-size: 1.9rem; }
-  .hero { min-height: 420px; }
-  .section { padding: 56px 20px; }
-  .section-header h2 { font-size: 1.6rem; }
-  .footer-inner { flex-direction: column; text-align: center; }
-  .legal-modal-header { padding: 18px 20px 14px; }
-  .legal-modal-body { padding: 20px 20px 28px; }
-  .legal-overlay { padding: 20px 12px; }
+/* ═══════════════════════════════════════════
+   MODALES
+   ═══════════════════════════════════════════ */
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.6);
+  z-index: 2000;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+  backdrop-filter: blur(4px);
+}
+.modal-overlay.open { display: flex; }
+.modal {
+  background: var(--nt-surface);
+  border-radius: 12px;
+  max-width: 680px;
+  width: 100%;
+  max-height: 80vh;
+  overflow-y: auto;
+  padding: 48px;
+  position: relative;
+}
+.modal-close {
+  position: absolute;
+  top: 16px; right: 16px;
+  width: 40px; height: 40px;
+  background: var(--nt-bg);
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2rem;
+  color: var(--nt-secondary);
+  transition: background 0.3s;
+}
+.modal-close:hover { background: var(--nt-border); }
+.modal h2 { font-size: 1.6rem; margin-bottom: 24px; }
+.modal h3 { font-family: var(--font-body); font-size: 1rem; font-weight: 600; margin: 24px 0 8px; color: var(--nt-text); }
+.modal p, .modal li {
+  color: var(--nt-secondary);
+  font-size: 0.9rem;
+  line-height: 1.8;
+  margin-bottom: 8px;
+}
+.modal ul { padding-left: 20px; }
+.modal ul li { list-style: disc; }
+
+.carousel-wrapper { position: relative; }
+.carousel-track {
+  display: flex; gap: 24px;
+  overflow-x: auto; scroll-snap-type: x mandatory;
+  scrollbar-width: none; scroll-behavior: smooth;
+  padding: 8px 4px 16px;
+}
+.carousel-track::-webkit-scrollbar { display: none; }
+.project-card {
+  flex: 0 0 calc(33.333% - 16px); min-width: 280px;
+  background: var(--nt-surface); border: 1px solid var(--nt-border);
+  border-radius: 16px; overflow: hidden; scroll-snap-align: start;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.project-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 20px 48px rgba(0,0,0,0.1);
+}
+.project-preview {
+  height: 220px; position: relative;
+  display: flex; flex-direction: column;
+  border-radius: 16px 16px 0 0; overflow: hidden;
+}
+.preview-emoji {
+  position: absolute; bottom: 12px; right: 16px;
+  font-size: 2rem; opacity: 0.6;
+}
+.mockup-screen {
+  width: 75%; margin: auto;
+  background: rgba(255,255,255,0.06);
+  border: 1px solid rgba(255,255,255,0.12);
+  border-radius: 8px; overflow: hidden;
+}
+.mockup-topbar {
+  display: flex; gap: 5px; padding: 8px 10px;
+  background: rgba(0,0,0,0.3);
+}
+.mockup-dot {
+  width: 7px; height: 7px; border-radius: 50%;
+  background: rgba(255,255,255,0.25);
+}
+.mockup-body {
+  padding: 10px; display: flex;
+  flex-direction: column; gap: 7px;
+}
+.mkp-title { height: 10px; border-radius: 4px; width: 70%; }
+.mkp-hero { height: 36px; border-radius: 4px; }
+.mkp-hero.orange { background: rgba(255,107,0,0.6); }
+.mkp-row { display: flex; gap: 6px; }
+.mkp-block { height: 22px; border-radius: 4px; flex: 1; }
+.mkp-block.small { flex: 0 0 30%; }
+.mkp-block.pink  { background: rgba(255,105,180,0.35); }
+.mkp-block.blue  { background: rgba(0,102,255,0.35); }
+.mkp-block.green { background: rgba(46,125,50,0.45); }
+.mkp-block.dark  { background: rgba(255,255,255,0.08); }
+.mkp-btn { height: 14px; border-radius: 6px; width: 50%; margin-top: 2px; }
+.mkp-btn.pink   { background: rgba(255,105,180,0.6); }
+.mkp-btn.orange { background: rgba(255,107,0,0.6); }
+.mkp-qr { display: flex; justify-content: center; padding: 4px 0; }
+.qr-grid {
+  display: grid; grid-template-columns: repeat(3,10px);
+  grid-template-rows: repeat(3,10px); gap: 2px;
+}
+.qr-grid span { background: rgba(0,102,255,0.6); border-radius: 1px; }
+.mkp-chart {
+  display: flex; align-items: flex-end;
+  gap: 4px; height: 36px; padding: 0 4px;
+}
+.mkp-chart span {
+  flex: 1; background: rgba(46,125,50,0.6);
+  border-radius: 2px 2px 0 0;
+}
+.project-info { padding: 20px; }
+.project-tag {
+  font-size: 11px; font-weight: 700; color: var(--nt-accent);
+  text-transform: uppercase; letter-spacing: 0.08em;
+}
+.project-info h3 {
+  font-family: var(--nt-font-title); font-size: 1.15rem;
+  color: var(--nt-text); margin: 8px 0;
+}
+.project-info p {
+  font-size: 0.875rem; color: var(--nt-secondary); line-height: 1.6;
+}
+.carousel-btn {
+  position: absolute; top: 45%; transform: translateY(-50%);
+  background: var(--nt-surface); border: 1px solid var(--nt-border);
+  border-radius: 50%; width: 44px; height: 44px;
+  font-size: 1.1rem; cursor: pointer;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.1);
+  transition: all 0.2s; z-index: 2;
+}
+.carousel-btn:hover {
+  background: var(--nt-accent); color: white;
+  border-color: var(--nt-accent);
+}
+.carousel-prev { left: -20px; }
+.carousel-next { right: -20px; }
+@media (max-width: 768px) {
+  .project-card { flex: 0 0 82vw; }
+  .carousel-btn { display: none; }
 }
 </style>
 </head>
+
 <body>
 
-<!-- ═══ NAVIGATION ═══ -->
-<nav class="nav" id="nav">
+<!-- ═══════════ NAVIGATION ═══════════ -->
+<nav class="nav at-hero" id="navbar">
   <div class="nav-inner">
-    <a href="#hero">
-      <img id="logo" src="./images/logo.png" alt="Nine Technologies" class="nav-logo" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
-      <span class="nav-logo-placeholder" style="display:none;">Nine Technologies</span>
-    </a>
-    <button class="nav-burger" id="burger" aria-label="Menu">
-      <span></span><span></span><span></span>
-    </button>
-    <div class="nav-links" id="nav-links">
+    <a href="#" class="nav-logo"><img src="./logo.png" alt="Nine Technologies" width="48" height="48"></a>
+    <div class="nav-links">
       <a href="#services">Services</a>
-      <a href="#reparation">R&eacute;paration</a>
-      <a href="#blog">Blog</a>
-      <a href="#about">&Agrave; propos</a>
+      <a href="#reparation">Réparation</a>
+      <a href="#outremer">DOM-TOM</a>
+      <a href="#about">À propos</a>
       <a href="#contact">Contact</a>
-      <a href="en.html" title="English version">EN</a>
       <a href="#contact" class="nav-cta">Demander un devis</a>
     </div>
+    <button class="burger" id="burger" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
   </div>
 </nav>
 
-<!-- ═══ HERO ═══ -->
+<div class="mobile-overlay" id="mobileOverlay"></div>
+<div class="mobile-menu" id="mobileMenu">
+  <a href="#services" class="mobile-link">Services</a>
+  <a href="#reparation" class="mobile-link">Réparation</a>
+  <a href="#outremer" class="mobile-link">DOM-TOM</a>
+  <a href="#about" class="mobile-link">À propos</a>
+  <a href="#contact" class="mobile-link">Contact</a>
+  <a href="#contact" class="nav-cta-mobile mobile-link">Demander un devis</a>
+</div>
+
+<!-- ═══════════ HERO ═══════════ -->
 <section class="hero" id="hero">
-  <img id="photo-hero" src="./images/hero.jpg" alt="Nine Technologies" class="hero-img" onerror="this.style.display='none'">
-  <div class="hero-overlay"></div>
+  <div class="hero-particles">
+    <canvas id="heroCanvas"></canvas>
+  </div>
   <div class="hero-content">
-    <p style="display:inline-block;background:rgba(26,95,191,0.25);border:1px solid rgba(255,255,255,0.25);padding:6px 18px;border-radius:20px;font-size:0.85rem;color:rgba(255,255,255,0.9);margin-bottom:18px;letter-spacing:0.03em;">Saint-Gaudens &bull; Occitanie &bull; Hauts-de-Comminges</p>
-    <h1>Votre partenaire digital &agrave; Saint-Gaudens</h1>
-    <p>Nine Technologies con&ccedil;oit des solutions digitales sur mesure &mdash; applications m&eacute;tiers, sites web, automatisation IA &amp; r&eacute;paration mobile/PC &mdash; pour les entreprises et particuliers en Occitanie.</p>
-    <a href="#contact" class="btn">Discutons de votre projet</a>
+    <img src="./logo.png" alt="Nine Technologies" class="hero-logo" width="140" height="140">
+    <h1>Solutions digitales sur mesure</h1>
+    <div class="hero-line"></div>
+    <p class="hero-subtitle">Applications métiers · Sites web · Automatisation IA · Réparation mobile &amp; PC</p>
+    <p class="hero-accroche">Pour les TPE/PME d'Occitanie — et de l'Outre-mer à distance.</p>
+    <div class="hero-ctas">
+      <a href="#contact" class="btn-primary">Décrire mon projet</a>
+      <a href="#services" class="btn-outline">Voir nos services</a>
+    </div>
   </div>
 </section>
 
-<!-- ═══ SERVICES ═══ -->
-<section class="section section-alt" id="services">
+<!-- ═══════════ SERVICES ═══════════ -->
+<section class="section" id="services">
+  <div class="section-header reveal">
+    <h2>Ce que nous construisons pour vous</h2>
+    <p>Des outils qui fonctionnent dès le premier jour.</p>
+  </div>
+  <div class="services-grid">
+    <div class="service-card reveal" style="transition-delay: 0ms;">
+      <span class="service-num">01</span>
+      <div class="service-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M21 7.5l-9-5.25L3 7.5m18 0l-9 5.25m9-5.25v9l-9 5.25M3 7.5l9 5.25M3 7.5v9l9 5.25m0-9v9"/></svg>
+      </div>
+      <h3>Applications Métiers</h3>
+      <p>Votre logiciel de gestion sur mesure — réservations, stocks, clients, facturation. Accessible depuis mobile, tablette, PC. Mis à jour et maintenu dans la durée.</p>
+      <a href="#contact" class="service-link">En savoir plus →</a>
+    </div>
+    <div class="service-card reveal" style="transition-delay: 100ms;">
+      <span class="service-num">02</span>
+      <div class="service-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M12 21a9.004 9.004 0 008.716-6.747M12 21a9.004 9.004 0 01-8.716-6.747M12 21c2.485 0 4.5-4.03 4.5-9S14.485 3 12 3m0 18c-2.485 0-4.5-4.03-4.5-9S9.515 3 12 3m0 0a8.997 8.997 0 017.843 4.582M12 3a8.997 8.997 0 00-7.843 4.582m15.686 0A11.953 11.953 0 0112 10.5c-2.998 0-5.74-1.1-7.843-2.918m15.686 0A8.959 8.959 0 0121 12c0 .778-.099 1.533-.284 2.253m0 0A17.919 17.919 0 0112 16.5c-3.162 0-6.133-.815-8.716-2.247m0 0A9.015 9.015 0 013 12c0-1.605.42-3.113 1.157-4.418"/></svg>
+      </div>
+      <h3>Sites Web Professionnels</h3>
+      <p>Votre vitrine en ligne rapide, lisible, conçue pour inspirer confiance et convertir des visiteurs en clients. Design soigné, zéro template bas de gamme.</p>
+      <a href="#contact" class="service-link">En savoir plus →</a>
+    </div>
+    <div class="service-card reveal" style="transition-delay: 200ms;">
+      <span class="service-num">03</span>
+      <div class="service-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M9.813 15.904L9 18.75l-.813-2.846a4.5 4.5 0 00-3.09-3.09L2.25 12l2.846-.813a4.5 4.5 0 003.09-3.09L9 5.25l.813 2.846a4.5 4.5 0 003.09 3.09L15.75 12l-2.846.813a4.5 4.5 0 00-3.09 3.09zM18.259 8.715L18 9.75l-.259-1.035a3.375 3.375 0 00-2.455-2.456L14.25 6l1.036-.259a3.375 3.375 0 002.455-2.456L18 2.25l.259 1.035a3.375 3.375 0 002.455 2.456L21.75 6l-1.036.259a3.375 3.375 0 00-2.455 2.456z"/></svg>
+      </div>
+      <h3>Automatisation &amp; IA</h3>
+      <p>Supprimez les tâches répétitives. Génération automatique de documents, traitement de données, assistants intelligents intégrés à vos outils existants.</p>
+      <a href="#contact" class="service-link">En savoir plus →</a>
+    </div>
+    <div class="service-card reveal" style="transition-delay: 300ms;">
+      <span class="service-num">04</span>
+      <div class="service-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M11.42 15.17l-5.1-5.1m0 0L11.42 4.97m-5.1 5.1H21M3 21h18"/></svg>
+      </div>
+      <h3>Réparation Mobile &amp; PC</h3>
+      <p>Changement d'écran, remplacement de batterie, réinstallation Windows, récupération de données. Intervention à domicile possible sur Saint-Gaudens. Tarifs sur devis.</p>
+      <a href="#contact" class="service-link">Demander un devis →</a>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════ STATS ═══════════ -->
+<section class="section stats" id="stats">
+  <div class="section-header reveal">
+    <h2>En chiffres</h2>
+  </div>
+  <div class="stats-grid">
+    <div class="stat-item reveal" style="transition-delay: 0ms;">
+      <div class="stat-number"><span class="counter" data-target="1">0</span><span class="stat-suffix">er</span></div>
+      <p class="stat-label">App en production</p>
+    </div>
+    <div class="stat-item reveal" style="transition-delay: 100ms;">
+      <div class="stat-number"><span class="counter" data-target="4">0</span></div>
+      <p class="stat-label">Services</p>
+    </div>
+    <div class="stat-item reveal" style="transition-delay: 200ms;">
+      <div class="stat-number"><span class="counter" data-target="24">0</span><span class="stat-suffix">h</span></div>
+      <p class="stat-label">Réponse</p>
+    </div>
+    <div class="stat-item reveal" style="transition-delay: 300ms;">
+      <div class="stat-number"><span class="counter" data-target="100">0</span><span class="stat-suffix">%</span></div>
+      <p class="stat-label">Sur mesure</p>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════ RÉPARATION ═══════════ -->
+<section class="section reparation" id="reparation">
+  <div class="section-header reveal">
+    <h2>Réparation téléphone &amp; PC à Saint-Gaudens</h2>
+  </div>
+  <p class="reparation-intro reveal">Nine Technologies propose un service de réparation mobile et PC à Saint-Gaudens et ses environs (Montrejeau, Luchon, Aspet, Valentine). Intervention rapide, pièces de qualité, tarifs transparents. Possibilité d'intervention à domicile.</p>
+  <div class="repair-grid">
+    <div class="repair-card reveal" style="transition-delay: 0ms;">
+      <h3>Changement d'écran</h3>
+      <div class="repair-price">à partir de 49€</div>
+      <span class="repair-badge">Selon modèle</span>
+      <p>Remplacement écran LCD/OLED pour smartphones et tablettes. Pièces certifiées, garantie 6 mois.</p>
+    </div>
+    <div class="repair-card reveal" style="transition-delay: 100ms;">
+      <h3>Remplacement batterie</h3>
+      <div class="repair-price">à partir de 35€</div>
+      <span class="repair-badge">Mobile &amp; PC portable</span>
+      <p>Batterie neuve, autonomie retrouvée. Compatible iPhone, Samsung, Huawei, Xiaomi et PC portables.</p>
+    </div>
+    <div class="repair-card reveal" style="transition-delay: 200ms;">
+      <h3>Réinstallation Windows</h3>
+      <div class="repair-price">à partir de 59€</div>
+      <span class="repair-badge">PC fixe &amp; portable</span>
+      <p>Formatage, réinstallation propre de Windows 10/11, pilotes et mises à jour. PC comme neuf.</p>
+    </div>
+    <div class="repair-card reveal" style="transition-delay: 300ms;">
+      <h3>Récupération de données</h3>
+      <div class="repair-price">à partir de 69€</div>
+      <span class="repair-badge">Diagnostic gratuit</span>
+      <p>Récupération de photos, documents et fichiers sur disque dur, SSD, clé USB ou carte SD.</p>
+    </div>
+  </div>
+  <div class="repair-cta reveal">
+    <p>Besoin d'un diagnostic ? Contactez-nous pour un devis gratuit et rapide.</p>
+    <a href="#contact" class="btn-primary-light">Demander un devis réparation</a>
+  </div>
+</section>
+
+<!-- ═══════════ DOM-TOM / OUTRE-MER ═══════════ -->
+<section class="section outremer antilles-section" id="outremer">
+  <div class="section-header reveal">
+    <h2>L'Outre-mer mérite aussi le meilleur du digital</h2>
+  </div>
+  <div class="outremer-content reveal">
+    <p>Martinique, Guadeloupe, Guyane, Réunion, Mayotte, Polynésie, Nouvelle-Calédonie — Nine Technologies intervient 100% à distance pour accompagner les entrepreneurs des territoires ultramarins. Mêmes exigences, même suivi, zéro distance.</p>
+    <div class="outremer-badge">100% à distance · Fuseau horaire adapté</div>
+    <div class="antilles-flags-sphere">
+<svg viewBox="0 0 400 400" xmlns="http://www.w3.org/2000/svg" style="width:100%;max-width:380px;height:auto;">
+  <defs>
+    <linearGradient id="circle-glow" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FFD700" stop-opacity="0.8"/>
+      <stop offset="25%" stop-color="#FFFFFF" stop-opacity="0.6"/>
+      <stop offset="50%" stop-color="#FFD700" stop-opacity="0.9"/>
+      <stop offset="75%" stop-color="#FFFFFF" stop-opacity="0.6"/>
+      <stop offset="100%" stop-color="#FFD700" stop-opacity="0.8"/>
+    </linearGradient>
+    <radialGradient id="dot-glow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#FFFFFF" stop-opacity="0.9"/>
+      <stop offset="100%" stop-color="#FFD700" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="badge-ring" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#B0B0B0"/>
+      <stop offset="30%" stop-color="#E8E8E8"/>
+      <stop offset="50%" stop-color="#FFFFFF"/>
+      <stop offset="70%" stop-color="#D0D0D0"/>
+      <stop offset="100%" stop-color="#909090"/>
+    </linearGradient>
+    <clipPath id="clip-big"><circle cx="0" cy="0" r="33"/></clipPath>
+    <clipPath id="clip-sm"><circle cx="0" cy="0" r="20"/></clipPath>
+  </defs>
+  <circle cx="200" cy="195" r="148" fill="none" stroke="url(#circle-glow)" stroke-width="2.5"/>
+  <circle cx="200" cy="195" r="148" fill="none" stroke="rgba(255,255,255,0.15)" stroke-width="0.5"/>
+  <circle cx="260" cy="52" r="3" fill="url(#dot-glow)"/>
+  <circle cx="345" cy="140" r="3" fill="url(#dot-glow)"/>
+  <circle cx="310" cy="320" r="3" fill="url(#dot-glow)"/>
+  <circle cx="90" cy="320" r="3" fill="url(#dot-glow)"/>
+  <circle cx="55" cy="140" r="3" fill="url(#dot-glow)"/>
+  <circle cx="140" cy="52" r="3" fill="url(#dot-glow)"/>
+  <g transform="translate(200,50)">
+    <circle r="36" fill="url(#badge-ring)"/>
+    <circle r="33" fill="#009A44"/>
+    <g clip-path="url(#clip-big)">
+      <rect x="-33" y="-33" width="66" height="33" fill="#009A44"/>
+      <rect x="-33" y="0" width="66" height="33" fill="#1A1A1A"/>
+      <polygon points="-33,-33 0,0 -33,33" fill="#ED1C24"/>
+    </g>
+    <circle r="36" fill="none" stroke="url(#badge-ring)" stroke-width="3"/>
+    <text x="0" y="50" text-anchor="middle" fill="#FFFFFF" font-size="12" font-family="DM Sans,sans-serif" font-weight="700">Martinique</text>
+  </g>
+  <g transform="translate(340,150)">
+    <circle r="23" fill="url(#badge-ring)"/>
+    <circle r="20" fill="#009A44"/>
+    <g clip-path="url(#clip-sm)">
+      <rect x="-20" y="-20" width="40" height="8" fill="#009A44"/>
+      <rect x="-20" y="-12" width="40" height="5" fill="#FFFFFF"/>
+      <rect x="-20" y="-7" width="40" height="14" fill="#ED1C24"/>
+      <rect x="-20" y="7" width="40" height="5" fill="#FFFFFF"/>
+      <rect x="-20" y="12" width="40" height="8" fill="#009A44"/>
+      <polygon points="0,-7 2.2,-1.5 8,-1.5 3.5,2 5,8 0,4.5 -5,8 -3.5,2 -8,-1.5 -2.2,-1.5" fill="#FFD700"/>
+    </g>
+    <circle r="23" fill="none" stroke="url(#badge-ring)" stroke-width="2.5"/>
+    <text x="0" y="33" text-anchor="middle" fill="rgba(255,255,255,0.8)" font-size="9" font-family="DM Sans,sans-serif" font-weight="500">Guadeloupe</text>
+  </g>
+  <g transform="translate(110,315)">
+    <circle r="23" fill="url(#badge-ring)"/>
+    <circle r="20" fill="#FFFFFF"/>
+    <g clip-path="url(#clip-sm)">
+      <rect x="-20" y="-20" width="40" height="40" fill="#FFFFFF"/>
+      <text x="0" y="-14" text-anchor="middle" fill="#ED1C24" font-size="5" font-family="DM Sans,sans-serif" font-weight="800">MAYOTTE</text>
+      <path d="M-7,-11 L7,-11 L7,-3 Q5,-1 3,-3 Q1,-5 -1,-3 Q-3,-1 -5,-3 Q-7,-5 -7,-3Z" fill="#0000CD"/>
+      <circle cx="0" cy="-7" r="3" fill="#FFFFFF"/>
+      <circle cx="1.2" cy="-7" r="3" fill="#0000CD"/>
+      <path d="M-7,-3 Q-5,-1 -3,-3 Q-1,-5 1,-3 Q3,-1 5,-3 Q7,-5 7,-3 L7,7 L-7,7Z" fill="#ED1C24"/>
+      <circle cx="-2.5" cy="2" r="0.5" fill="#FFD700"/>
+      <ellipse cx="-2.5" cy="0.3" rx="0.5" ry="1.2" fill="#FFD700"/>
+      <ellipse cx="-2.5" cy="3.7" rx="0.5" ry="1.2" fill="#FFD700"/>
+      <ellipse cx="-3.7" cy="2" rx="1.2" ry="0.5" fill="#FFD700"/>
+      <ellipse cx="-1.3" cy="2" rx="1.2" ry="0.5" fill="#FFD700"/>
+      <circle cx="2.5" cy="2" r="0.5" fill="#FFD700"/>
+      <ellipse cx="2.5" cy="0.3" rx="0.5" ry="1.2" fill="#FFD700"/>
+      <ellipse cx="2.5" cy="3.7" rx="0.5" ry="1.2" fill="#FFD700"/>
+      <ellipse cx="1.3" cy="2" rx="1.2" ry="0.5" fill="#FFD700"/>
+      <ellipse cx="3.7" cy="2" rx="1.2" ry="0.5" fill="#FFD700"/>
+      <text x="0" y="10.5" text-anchor="middle" fill="#666" font-size="2.2" font-family="DM Sans,sans-serif" font-weight="600">RA HACHIRI</text>
+    </g>
+    <circle r="23" fill="none" stroke="url(#badge-ring)" stroke-width="2.5"/>
+    <text x="0" y="33" text-anchor="middle" fill="rgba(255,255,255,0.8)" font-size="9" font-family="DM Sans,sans-serif" font-weight="500">Mayotte</text>
+  </g>
+  <g transform="translate(290,315)">
+    <circle r="23" fill="url(#badge-ring)"/>
+    <circle r="20" fill="#003DA5"/>
+    <g clip-path="url(#clip-sm)">
+      <rect x="-20" y="-20" width="40" height="40" fill="#003DA5"/>
+      <polygon points="-20,20 0,-4 20,20" fill="#ED1C24"/>
+      <polygon points="-0.8,-4 -0.8,-20 0.8,-20 0.8,-4" fill="#FFD700"/>
+      <polygon points="0,-4 -9,-18 -5.5,-19.5" fill="#FFD700"/>
+      <polygon points="0,-4 9,-18 5.5,-19.5" fill="#FFD700"/>
+      <polygon points="0,-4 -15,-13 -12,-16" fill="#FFD700"/>
+      <polygon points="0,-4 15,-13 12,-16" fill="#FFD700"/>
+    </g>
+    <circle r="23" fill="none" stroke="url(#badge-ring)" stroke-width="2.5"/>
+    <text x="0" y="33" text-anchor="middle" fill="rgba(255,255,255,0.8)" font-size="9" font-family="DM Sans,sans-serif" font-weight="500">Réunion</text>
+  </g>
+  <g transform="translate(60,150)">
+    <circle r="23" fill="url(#badge-ring)"/>
+    <circle r="20" fill="#009A44"/>
+    <g clip-path="url(#clip-sm)">
+      <rect x="-20" y="-20" width="40" height="40" fill="#FFD700"/>
+      <polygon points="-20,-20 20,-20 20,20" fill="#009A44"/>
+      <polygon points="0,-6 1.8,-1 6.5,-1 2.8,2 4,7 0,4 -4,7 -2.8,2 -6.5,-1 -1.8,-1" fill="#ED1C24"/>
+    </g>
+    <circle r="23" fill="none" stroke="url(#badge-ring)" stroke-width="2.5"/>
+    <text x="0" y="33" text-anchor="middle" fill="rgba(255,255,255,0.8)" font-size="9" font-family="DM Sans,sans-serif" font-weight="500">Guyane</text>
+  </g>
+  <text x="200" y="385" text-anchor="middle" fill="rgba(255,255,255,0.9)" font-size="14" font-family="DM Sans,sans-serif" font-weight="600">100% à distance</text>
+</svg>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════ RÉALISATIONS ═══════════ -->
+<section class="section section-alt" id="realisations">
   <div class="section-inner">
     <div class="section-header reveal">
-      <h2>Ce que nous construisons pour vous</h2>
-      <p>Des solutions concrètes, pensées pour le terrain — pas des gadgets.</p>
+      <h2>Nos réalisations</h2>
+      <p>Des outils réels, en production, utilisés chaque jour.</p>
     </div>
-    <div class="services-grid">
+    <div class="carousel-wrapper">
+      <div class="carousel-track" id="carousel-track">
 
-      <div class="service-card reveal">
-        <img id="photo-app" src="./images/photo-app.jpg" alt="Applications Métiers" class="service-card-img" onerror="this.style.background='var(--gray-100)';this.style.minHeight='200px'">
-        <div class="service-card-body">
-          <div class="service-card-icon">
-            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M10.5 6h9.75M10.5 6a1.5 1.5 0 1 1-3 0m3 0a1.5 1.5 0 1 0-3 0M3.75 6H7.5m3 12h9.75m-9.75 0a1.5 1.5 0 0 1-3 0m3 0a1.5 1.5 0 0 0-3 0m-3.75 0H7.5m9-6h3.75m-3.75 0a1.5 1.5 0 0 1-3 0m3 0a1.5 1.5 0 0 0-3 0m-9.75 0h9.75"/></svg>
-          </div>
-          <h3>Applications Métiers</h3>
-          <p>Suivi d'activité, gestion des équipes, tableaux de bord, validation en temps réel. Des outils pensés pour votre réalité terrain — simples à prendre en main, fiables au quotidien.</p>
-          <a href="#contact" class="service-link">En savoir plus <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3"/></svg></a>
-        </div>
-      </div>
-
-      <div class="service-card reveal">
-        <img id="photo-web" src="./images/photo-web.jpg" alt="Sites Web Professionnels" class="service-card-img" onerror="this.style.background='var(--gray-100)';this.style.minHeight='200px'">
-        <div class="service-card-body">
-          <div class="service-card-icon">
-            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M12 21a9.004 9.004 0 0 0 8.716-6.747M12 21a9.004 9.004 0 0 1-8.716-6.747M12 21c2.485 0 4.5-4.03 4.5-9S14.485 3 12 3m0 18c-2.485 0-4.5-4.03-4.5-9S9.515 3 12 3m0 0a8.997 8.997 0 0 1 7.843 4.582M12 3a8.997 8.997 0 0 0-7.843 4.582m15.686 0A11.953 11.953 0 0 1 12 10.5c-2.998 0-5.74-1.1-7.843-2.918m15.686 0A8.959 8.959 0 0 1 21 12c0 .778-.099 1.533-.284 2.253m0 0A17.919 17.919 0 0 1 12 16.5a17.92 17.92 0 0 1-8.716-2.247m0 0A8.966 8.966 0 0 1 3 12c0-1.264.26-2.467.732-3.559"/></svg>
-          </div>
-          <h3>Sites Web Professionnels</h3>
-          <p>Votre vitrine en ligne rapide, lisible, conçue pour inspirer confiance et convertir des visiteurs en clients. Design soigné, zéro template bas de gamme.</p>
-          <a href="#contact" class="service-link">En savoir plus <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3"/></svg></a>
-        </div>
-      </div>
-
-      <div class="service-card reveal">
-        <img id="photo-ia" src="./images/photo-ia.jpg" alt="Automatisation et IA" class="service-card-img" onerror="this.style.background='var(--gray-100)';this.style.minHeight='200px'">
-        <div class="service-card-body">
-          <div class="service-card-icon">
-            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M9.813 15.904 9 18.75l-.813-2.846a4.5 4.5 0 0 0-3.09-3.09L2.25 12l2.846-.813a4.5 4.5 0 0 0 3.09-3.09L9 5.25l.813 2.846a4.5 4.5 0 0 0 3.09 3.09L15.75 12l-2.846.813a4.5 4.5 0 0 0-3.09 3.09ZM18.259 8.715 18 9.75l-.259-1.035a3.375 3.375 0 0 0-2.455-2.456L14.25 6l1.036-.259a3.375 3.375 0 0 0 2.455-2.456L18 2.25l.259 1.035a3.375 3.375 0 0 0 2.455 2.456L21.75 6l-1.036.259a3.375 3.375 0 0 0-2.455 2.456ZM16.894 20.567 16.5 21.75l-.394-1.183a2.25 2.25 0 0 0-1.423-1.423L13.5 18.75l1.183-.394a2.25 2.25 0 0 0 1.423-1.423l.394-1.183.394 1.183a2.25 2.25 0 0 0 1.423 1.423l1.183.394-1.183.394a2.25 2.25 0 0 0-1.423 1.423Z"/></svg>
-          </div>
-          <h3>Automatisation & IA</h3>
-          <p>Supprimez les tâches répétitives. Génération automatique de documents, traitement de données, assistants intelligents intégrés à vos outils existants.</p>
-          <a href="#contact" class="service-link">En savoir plus <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3"/></svg></a>
-        </div>
-      </div>
-
-    </div>
-      <!-- Réparation Mobile & PC -->
-      <div class="service-card reveal">
-        <img id="photo-repair" style="object-position:center 30%;" src="./images/photo-repair.jpg" alt="Réparation Mobile et PC" class="service-card-img">
-        <div class="service-card-body">
-          <div class="service-card-icon">
-            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M11.42 15.17 17.25 21A2.652 2.652 0 0 0 21 17.25l-5.877-5.877M11.42 15.17l2.496-3.03c.317-.384.74-.626 1.208-.766M11.42 15.17l-4.655 5.653a2.548 2.548 0 1 1-3.586-3.586l6.837-5.63m5.108-.233c.55-.164 1.163-.188 1.743-.14a4.5 4.5 0 0 0 4.486-6.336l-3.276 3.277a3.004 3.004 0 0 1-2.25-2.25l3.276-3.276a4.5 4.5 0 0 0-6.336 4.486c.049.58.025 1.193-.14 1.743"/></svg>
-          </div>
-          <h3>R&eacute;paration Mobile &amp; PC</h3>
-          <p>Changement d'&eacute;cran, remplacement de batterie, r&eacute;installation Windows, r&eacute;cup&eacute;ration de donn&eacute;es. Intervention &agrave; domicile possible sur Saint-Gaudens. Tarifs sur devis.</p>
-          <a href="#contact" class="service-link">Demander un devis <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3"/></svg></a>
-        </div>
-      </div>
-  </div>
-</section>
-
-
-<!-- ═══ RÉPARATION MOBILE & PC ═══ -->
-<section class="section repair-section" id="reparation">
-  <div class="section-inner">
-    <div class="section-header reveal">
-      <h2>R&eacute;paration t&eacute;l&eacute;phone &amp; PC &agrave; Saint-Gaudens</h2>
-      <p>Un &eacute;cran cass&eacute;, un PC qui rame, des donn&eacute;es perdues ? On s'en occupe.</p>
-    </div>
-    <div class="repair-intro reveal">
-      <p>Nine Technologies propose un service de <strong>r&eacute;paration mobile et PC &agrave; Saint-Gaudens</strong> et ses environs (Montrejeau, Luchon, Aspet, Valentine). Intervention rapide, pi&egrave;ces de qualit&eacute;, tarifs transparents. Possibilit&eacute; d'intervention &agrave; domicile.</p>
-    </div>
-    <div class="pricing-grid">
-      <div class="pricing-card reveal">
-        <div class="pricing-card-icon">
-          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M10.5 1.5H8.25A2.25 2.25 0 0 0 6 3.75v16.5a2.25 2.25 0 0 0 2.25 2.25h7.5A2.25 2.25 0 0 0 18 20.25V3.75a2.25 2.25 0 0 0-2.25-2.25H13.5m-3 0V3h3V1.5m-3 0h3"/></svg>
-        </div>
-        <h3>Changement d'&eacute;cran</h3>
-        <div class="price">&agrave; partir de 49&euro;</div>
-        <p class="price-note">Selon mod&egrave;le</p>
-        <p class="price-desc">Remplacement d'&eacute;cran LCD/OLED pour smartphones et tablettes. Pi&egrave;ces certifi&eacute;es, garantie 6 mois.</p>
-      </div>
-      <div class="pricing-card reveal reveal-delay-1">
-        <div class="pricing-card-icon">
-          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M21 10.5h.375c.621 0 1.125.504 1.125 1.125v2.25c0 .621-.504 1.125-1.125 1.125H21M3.75 18h15A2.25 2.25 0 0 0 21 15.75v-6a2.25 2.25 0 0 0-2.25-2.25h-15A2.25 2.25 0 0 0 1.5 9.75v6A2.25 2.25 0 0 0 3.75 18Z"/></svg>
-        </div>
-        <h3>Remplacement batterie</h3>
-        <div class="price">&agrave; partir de 35&euro;</div>
-        <p class="price-note">Mobile &amp; PC portable</p>
-        <p class="price-desc">Batterie neuve, autonomie retrouv&eacute;e. Compatible iPhone, Samsung, Huawei, Xiaomi et PC portables.</p>
-      </div>
-      <div class="pricing-card reveal reveal-delay-2">
-        <div class="pricing-card-icon">
-          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M9 17.25v1.007a3 3 0 0 1-.879 2.122L7.5 21h9l-.621-.621A3 3 0 0 1 15 18.257V17.25m6-12V15a2.25 2.25 0 0 1-2.25 2.25H5.25A2.25 2.25 0 0 1 3 15V5.25A2.25 2.25 0 0 1 5.25 3h13.5A2.25 2.25 0 0 1 21 5.25Z"/></svg>
-        </div>
-        <h3>R&eacute;installation Windows</h3>
-        <div class="price">&agrave; partir de 59&euro;</div>
-        <p class="price-note">PC fixe &amp; portable</p>
-        <p class="price-desc">Formatage, r&eacute;installation propre de Windows 10/11, pilotes et mises &agrave; jour. PC comme neuf.</p>
-      </div>
-      <div class="pricing-card reveal reveal-delay-3">
-        <div class="pricing-card-icon">
-          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M20.25 6.375c0 2.278-3.694 4.125-8.25 4.125S3.75 8.653 3.75 6.375m16.5 0c0-2.278-3.694-4.125-8.25-4.125S3.75 4.097 3.75 6.375m16.5 0v11.25c0 2.278-3.694 4.125-8.25 4.125s-8.25-1.847-8.25-4.125V6.375m16.5 3.75c0 2.278-3.694 4.125-8.25 4.125s-8.25-1.847-8.25-4.125"/></svg>
-        </div>
-        <h3>R&eacute;cup&eacute;ration de donn&eacute;es</h3>
-        <div class="price">&agrave; partir de 69&euro;</div>
-        <p class="price-note">Diagnostic gratuit</p>
-        <p class="price-desc">R&eacute;cup&eacute;ration de photos, documents et fichiers sur disque dur, SSD, cl&eacute; USB ou carte SD.</p>
-      </div>
-    </div>
-    <div class="repair-cta reveal">
-      <p>Besoin d'un diagnostic ? Contactez-nous pour un devis gratuit et rapide.</p>
-      <a href="#contact" class="btn">Demander un devis r&eacute;paration</a>
-    </div>
-  </div>
-</section>
-
-<!-- ═══ ANTILLES & OUTRE-MER ═══ -->
-<section class="section antilles-section" id="outremer">
-  <div class="antilles-inner">
-    <div class="antilles-text reveal">
-      <h2>L'Outre-mer m&eacute;rite aussi le meilleur du digital</h2>
-      <p>Originaire de Martinique, je sais que les entreprises des territoires ultramarins sont trop souvent oubli&eacute;es par les prestataires num&eacute;riques. Pas ici.</p>
-      <p>Nine Technologies accompagne les artisans, commer&ccedil;ants et PME des Antilles et de l'Outre-mer &mdash; 100% &agrave; distance, avec la m&ecirc;me qualit&eacute; et la m&ecirc;me r&eacute;activit&eacute; qu'en m&eacute;tropole.</p>
-      <span class="antilles-tag">Martinique &bull; Guadeloupe &bull; Guyane &bull; R&eacute;union &bull; Mayotte</span>
-    </div>
-    <div class="antilles-visual reveal">
-      <div class="antilles-flags-sphere">
-        <svg viewBox="0 0 400 400" xmlns="http://www.w3.org/2000/svg" style="width:100%;max-width:380px;height:auto;">
-          <defs>
-            <linearGradient id="circle-glow" x1="0%" y1="0%" x2="100%" y2="100%">
-              <stop offset="0%" stop-color="#FFD700" stop-opacity="0.8"/>
-              <stop offset="25%" stop-color="#FFFFFF" stop-opacity="0.6"/>
-              <stop offset="50%" stop-color="#FFD700" stop-opacity="0.9"/>
-              <stop offset="75%" stop-color="#FFFFFF" stop-opacity="0.6"/>
-              <stop offset="100%" stop-color="#FFD700" stop-opacity="0.8"/>
-            </linearGradient>
-            <filter id="glow">
-              <feGaussianBlur stdDeviation="3" result="blur"/>
-              <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
-            </filter>
-            <radialGradient id="dot-glow" cx="50%" cy="50%" r="50%">
-              <stop offset="0%" stop-color="#FFFFFF" stop-opacity="0.9"/>
-              <stop offset="100%" stop-color="#FFD700" stop-opacity="0"/>
-            </radialGradient>
-            <!-- Badge ring gradient -->
-            <linearGradient id="badge-ring" x1="0%" y1="0%" x2="100%" y2="100%">
-              <stop offset="0%" stop-color="#B0B0B0"/>
-              <stop offset="30%" stop-color="#E8E8E8"/>
-              <stop offset="50%" stop-color="#FFFFFF"/>
-              <stop offset="70%" stop-color="#D0D0D0"/>
-              <stop offset="100%" stop-color="#909090"/>
-            </linearGradient>
-            <!-- Clip circles -->
-            <clipPath id="clip-big"><circle cx="0" cy="0" r="33"/></clipPath>
-            <clipPath id="clip-sm"><circle cx="0" cy="0" r="20"/></clipPath>
-          </defs>
-
-          <!-- Cercle lumineux principal -->
-          <circle cx="200" cy="195" r="148" fill="none" stroke="url(#circle-glow)" stroke-width="2.5" filter="url(#glow)"/>
-          <circle cx="200" cy="195" r="148" fill="none" stroke="rgba(255,255,255,0.15)" stroke-width="0.5"/>
-
-          <!-- Points lumineux -->
-          <circle cx="260" cy="52" r="3" fill="url(#dot-glow)"/>
-          <circle cx="345" cy="140" r="3" fill="url(#dot-glow)"/>
-          <circle cx="310" cy="320" r="3" fill="url(#dot-glow)"/>
-          <circle cx="90" cy="320" r="3" fill="url(#dot-glow)"/>
-          <circle cx="55" cy="140" r="3" fill="url(#dot-glow)"/>
-          <circle cx="140" cy="52" r="3" fill="url(#dot-glow)"/>
-
-          <!-- ★ MARTINIQUE (sommet, gros badge) ★ -->
-          <g transform="translate(200,50)">
-            <circle r="36" fill="url(#badge-ring)"/>
-            <circle r="33" fill="#009A44"/>
-            <g clip-path="url(#clip-big)">
-              <rect x="-33" y="-33" width="66" height="33" fill="#009A44"/>
-              <rect x="-33" y="0" width="66" height="33" fill="#1A1A1A"/>
-              <polygon points="-33,-33 0,0 -33,33" fill="#ED1C24"/>
-            </g>
-            <circle r="36" fill="none" stroke="url(#badge-ring)" stroke-width="3"/>
-            <text x="0" y="50" text-anchor="middle" fill="#FFFFFF" font-size="12" font-family="DM Sans,sans-serif" font-weight="700">Martinique</text>
-          </g>
-
-          <!-- GUADELOUPE (haut-droite ~342° => 338,150) -->
-          <g transform="translate(340,150)">
-            <circle r="23" fill="url(#badge-ring)"/>
-            <circle r="20" fill="#009A44"/>
-            <g clip-path="url(#clip-sm)">
-              <!-- Bandes: vert / blanc / rouge / blanc / vert -->
-              <rect x="-20" y="-20" width="40" height="8" fill="#009A44"/>
-              <rect x="-20" y="-12" width="40" height="5" fill="#FFFFFF"/>
-              <rect x="-20" y="-7" width="40" height="14" fill="#ED1C24"/>
-              <rect x="-20" y="7" width="40" height="5" fill="#FFFFFF"/>
-              <rect x="-20" y="12" width="40" height="8" fill="#009A44"/>
-              <!-- Etoile jaune au centre -->
-              <polygon points="0,-7 2.2,-1.5 8,-1.5 3.5,2 5,8 0,4.5 -5,8 -3.5,2 -8,-1.5 -2.2,-1.5" fill="#FFD700"/>
-            </g>
-            <circle r="23" fill="none" stroke="url(#badge-ring)" stroke-width="2.5"/>
-            <text x="0" y="33" text-anchor="middle" fill="rgba(255,255,255,0.8)" font-size="9" font-family="DM Sans,sans-serif" font-weight="500">Guadeloupe</text>
-          </g>
-
-          <!-- RÉUNION (bas-droite ~54° => 285,312) -->
-          <g transform="translate(110,315)">
-            <circle r="23" fill="url(#badge-ring)"/>
-            <circle r="20" fill="#FFFFFF"/>
-            <g clip-path="url(#clip-sm)">
-              <!-- Fond blanc -->
-              <rect x="-20" y="-20" width="40" height="40" fill="#FFFFFF"/>
-              
-              <!-- Texte MAYOTTE rouge en haut -->
-              <text x="0" y="-14" text-anchor="middle" fill="#ED1C24" font-size="5" font-family="DM Sans,sans-serif" font-weight="800">MAYOTTE</text>
-              
-              <!-- Blason central - écu -->
-              <rect x="-7" y="-11" width="14" height="18" rx="1" fill="none" stroke="#333" stroke-width="0.5"/>
-              
-              <!-- Moitié haute bleue avec bord ondulé -->
-              <path d="M-7,-11 L7,-11 L7,-3 Q5,-1 3,-3 Q1,-5 -1,-3 Q-3,-1 -5,-3 Q-7,-5 -7,-3Z" fill="#0000CD"/>
-              
-              <!-- Croissant blanc dans la zone bleue -->
-              <circle cx="0" cy="-7" r="3" fill="#FFFFFF"/>
-              <circle cx="1.2" cy="-7" r="3" fill="#0000CD"/>
-              
-              <!-- Moitié basse rouge -->
-              <path d="M-7,-3 Q-5,-1 -3,-3 Q-1,-5 1,-3 Q3,-1 5,-3 Q7,-5 7,-3 L7,7 L-7,7Z" fill="#ED1C24"/>
-              
-              <!-- 2 fleurs d'ylang-ylang -->
-              <!-- Fleur gauche -->
-              <circle cx="-2.5" cy="2" r="0.5" fill="#FFD700"/>
-              <ellipse cx="-2.5" cy="0.3" rx="0.5" ry="1.2" fill="#FFD700"/>
-              <ellipse cx="-2.5" cy="3.7" rx="0.5" ry="1.2" fill="#FFD700"/>
-              <ellipse cx="-3.7" cy="2" rx="1.2" ry="0.5" fill="#FFD700"/>
-              <ellipse cx="-1.3" cy="2" rx="1.2" ry="0.5" fill="#FFD700"/>
-              
-              <!-- Fleur droite -->
-              <circle cx="2.5" cy="2" r="0.5" fill="#FFD700"/>
-              <ellipse cx="2.5" cy="0.3" rx="0.5" ry="1.2" fill="#FFD700"/>
-              <ellipse cx="2.5" cy="3.7" rx="0.5" ry="1.2" fill="#FFD700"/>
-              <ellipse cx="1.3" cy="2" rx="1.2" ry="0.5" fill="#FFD700"/>
-              <ellipse cx="3.7" cy="2" rx="1.2" ry="0.5" fill="#FFD700"/>
-              
-              <!-- Hippocampe gauche simplifié -->
-              <path d="M-12,-7 Q-13,-8 -12,-9 Q-11,-10 -10,-9 L-10,-5 Q-10,0 -11,3 Q-12,6 -13,7 Q-13.5,8 -13,8.5 Q-12,9 -11,8" fill="none" stroke="#999" stroke-width="0.8"/>
-              <circle cx="-11.5" cy="-9" r="1" fill="#CCC"/>
-              
-              <!-- Hippocampe droit simplifié -->
-              <path d="M12,-7 Q13,-8 12,-9 Q11,-10 10,-9 L10,-5 Q10,0 11,3 Q12,6 13,7 Q13.5,8 13,8.5 Q12,9 11,8" fill="none" stroke="#999" stroke-width="0.8"/>
-              <circle cx="11.5" cy="-9" r="1" fill="#CCC"/>
-              
-              <!-- Bandeau RA HACHIRI -->
-              <path d="M-6,9 Q0,11 6,9" fill="none" stroke="#CCC" stroke-width="1.5"/>
-              <text x="0" y="10.5" text-anchor="middle" fill="#666" font-size="2.2" font-family="DM Sans,sans-serif" font-weight="600">RA HACHIRI</text>
-            </g>
-            <circle r="23" fill="none" stroke="url(#badge-ring)" stroke-width="2.5"/>
-            <text x="0" y="33" text-anchor="middle" fill="rgba(255,255,255,0.8)" font-size="9" font-family="DM Sans,sans-serif" font-weight="500">Mayotte</text>
-          </g>
-
-          
-          <!-- RÉUNION (bas-droite => 290,315) -->
-          <g transform="translate(290,315)">
-            <circle r="23" fill="url(#badge-ring)"/>
-            <circle r="20" fill="#003DA5"/>
-            <g clip-path="url(#clip-sm)">
-              <rect x="-20" y="-20" width="40" height="40" fill="#003DA5"/>
-              <!-- Triangle rouge volcan: base en bas, pointe en haut -->
-              <polygon points="-20,20 0,-4 20,20" fill="#ED1C24"/>
-              <!-- 5 rayons jaunes (triangles) depuis le sommet du volcan -->
-              <polygon points="-0.8,-4 -0.8,-20 0.8,-20 0.8,-4" fill="#FFD700"/>
-              <polygon points="0,-4 -9,-18 -5.5,-19.5" fill="#FFD700"/>
-              <polygon points="0,-4 9,-18 5.5,-19.5" fill="#FFD700"/>
-              <polygon points="0,-4 -15,-13 -12,-16" fill="#FFD700"/>
-              <polygon points="0,-4 15,-13 12,-16" fill="#FFD700"/>
-            </g>
-            <circle r="23" fill="none" stroke="url(#badge-ring)" stroke-width="2.5"/>
-            <text x="0" y="33" text-anchor="middle" fill="rgba(255,255,255,0.8)" font-size="9" font-family="DM Sans,sans-serif" font-weight="500">Réunion</text>
-          </g>
-          <!-- GUYANE (haut-gauche ~198° => 60,150) -->
-          <g transform="translate(60,150)">
-            <circle r="23" fill="url(#badge-ring)"/>
-            <circle r="20" fill="#009A44"/>
-            <g clip-path="url(#clip-sm)">
-              <!-- Vert en haut-droite, jaune en bas-gauche, diagonale -->
-              <rect x="-20" y="-20" width="40" height="40" fill="#FFD700"/>
-              <polygon points="-20,-20 20,-20 20,20" fill="#009A44"/>
-              <!-- Etoile rouge au centre -->
-              <polygon points="0,-6 1.8,-1 6.5,-1 2.8,2 4,7 0,4 -4,7 -2.8,2 -6.5,-1 -1.8,-1" fill="#ED1C24"/>
-            </g>
-            <circle r="23" fill="none" stroke="url(#badge-ring)" stroke-width="2.5"/>
-            <text x="0" y="33" text-anchor="middle" fill="rgba(255,255,255,0.8)" font-size="9" font-family="DM Sans,sans-serif" font-weight="500">Guyane</text>
-          </g>
-
-          <!-- Label -->
-          <text x="200" y="385" text-anchor="middle" fill="rgba(255,255,255,0.9)" font-size="14" font-family="DM Sans,sans-serif" font-weight="600">100% à distance</text>
-        </svg>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ═══ À PROPOS ═══ -->
-<section class="section section-line" id="about" style="background:var(--navy)">
-  <div class="section-inner">
-    <div class="about-grid reveal">
-      <img id="photo-portrait" src="./images/portrait.jpg" alt="Marc-Antoine Pavadé" class="about-portrait" onerror="this.style.background='var(--gray-100)'">
-      <div class="about-text">
-        <h3>L'humain derrière la technologie</h3>
-        <p>Nine Technologies, c'est Marc-Antoine Pavadé — entrepreneur basé à Saint-Gaudens, avec une expérience terrain au contact des artisans, commerçants et PME de la région.</p>
-        <p>Je construis des outils digitaux qui fonctionnent dès le premier jour, sans formation longue, sans jargon.</p>
-        <p>Mon engagement : être présent après la livraison, pas seulement avant.</p>
-      </div>
-    </div>
-    <div class="values-row">
-      <div class="value-item reveal reveal-delay-1">
-        <div class="value-icon"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="m4.5 12.75 6 6 9-13.5"/></svg></div>
-        <h4>Précision</h4>
-        <p>Chaque détail compte. Rien n'est laissé au hasard.</p>
-      </div>
-      <div class="value-item reveal reveal-delay-2">
-        <div class="value-icon"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M3.75 13.5l10.5-11.25L12 10.5h8.25L9.75 21.75 12 13.5H3.75Z"/></svg></div>
-        <h4>Réactivité</h4>
-        <p>Un problème signalé, une réponse rapide. Toujours.</p>
-      </div>
-      <div class="value-item reveal reveal-delay-3">
-        <div class="value-icon"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75 11.25 15 15 9.75m-3-7.036A11.959 11.959 0 0 1 3.598 6 11.99 11.99 0 0 0 3 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.285Z"/></svg></div>
-        <h4>Fiabilité</h4>
-        <p>Des solutions robustes, un suivi dans la durée.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-
-<!-- ═══ TÉMOIGNAGES ═══ -->
-<section class="section" id="testimonials">
-  <div class="section-inner">
-    <div class="section-header reveal">
-      <h2>Ce que disent nos clients</h2>
-      <p>Ils nous ont fait confiance.</p>
-    </div>
-    <div class="testimonials-placeholder reveal">
-      <p>Les premiers t&eacute;moignages arrivent bient&ocirc;t.</p>
-    </div>
-  </div>
-</section>
-
-<!-- ═══ BLOG ═══ -->
-<section class="section" id="blog">
-  <div class="section-inner">
-    <div class="section-header reveal">
-      <h2>Blog &amp; Conseils</h2>
-      <p>Astuces tech, bonnes pratiques et actualit&eacute;s digitales depuis Saint-Gaudens.</p>
-    </div>
-    <div class="blog-grid">
-      <div class="blog-card reveal">
-        <span class="blog-card-tag">R&eacute;paration</span>
-        <h3>5 signes que votre t&eacute;l&eacute;phone a besoin d'une r&eacute;paration</h3>
-        <p>Batterie qui se vide trop vite, &eacute;cran fig&eacute;, red&eacute;marrages intempestifs&hellip; Voici les signaux &agrave; ne pas ignorer.</p>
-        <a href="blog.html" class="blog-card-link">Lire la suite &rarr;</a>
-      </div>
-      <div class="blog-card reveal reveal-delay-1">
-        <span class="blog-card-tag">Business</span>
-        <h3>Pourquoi un site web est essentiel pour votre entreprise en 2026</h3>
-        <p>Visibilit&eacute;, cr&eacute;dibilit&eacute;, acquisition client : 3 raisons concr&egrave;tes d'investir dans votre pr&eacute;sence en ligne.</p>
-        <a href="blog.html" class="blog-card-link">Lire la suite &rarr;</a>
-      </div>
-      <div class="blog-card reveal reveal-delay-2">
-        <span class="blog-card-tag">S&eacute;curit&eacute;</span>
-        <h3>Comment prot&eacute;ger vos donn&eacute;es : guide pratique</h3>
-        <p>Sauvegardes, mots de passe, antivirus : les bons r&eacute;flexes pour s&eacute;curiser vos donn&eacute;es personnelles et professionnelles.</p>
-        <a href="blog.html" class="blog-card-link">Lire la suite &rarr;</a>
-      </div>
-    </div>
-    <div class="blog-more reveal">
-      <a href="blog.html" class="btn btn-outline">Voir tous les articles</a>
-    </div>
-  </div>
-</section>
-
-<!-- ═══ CONTACT ═══ -->
-<section class="section section-alt" id="contact">
-  <div class="section-inner">
-    <div class="section-header reveal">
-      <h2>Parlons de votre projet</h2>
-      <p>Un besoin, une idée, une question ? Écrivez-moi — je réponds sous 24h.</p>
-    </div>
-    <div class="contact-grid reveal">
-      <div class="contact-info">
-        <h3>Coordonnées</h3>
-        
-        <div class="contact-item">
-          <div class="contact-item-icon"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M15 10.5a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z"/><path stroke-linecap="round" stroke-linejoin="round" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1 1 15 0Z"/></svg></div>
-          <div class="contact-item-text"><span>Localisation</span><p>Saint-Gaudens, Occitanie</p></div>
-        </div>
-      </div>
-      <div>
-        <div class="contact-form" id="contact-form">
-          <input type="hidden" name="access_key" value="d96fceb6-e215-4603-837a-acc13244b99d">
-          <input type="hidden" name="subject" value="Nouveau message depuis ninetechnologies.vercel.app">
-          <input type="hidden" name="from_name" value="Nine Technologies">
-          <input type="hidden" name="botcheck" style="display:none">
-          <div class="form-row">
-            <div class="form-group"><label for="f-name">Nom</label><input type="text" id="f-name" placeholder="Votre nom" required></div>
-            <div class="form-group"><label for="f-company">Entreprise</label><input type="text" id="f-company" placeholder="Nom de votre entreprise"></div>
-          </div>
-          <div class="form-group"><label for="f-email">Email</label><input type="email" id="f-email" placeholder="votre@email.fr" required></div>
-          <div class="form-group">
-            <label for="f-service">Service souhait&eacute;</label>
-            <select id="f-service" name="Service">
-              <option value="" disabled selected>Choisissez un service</option>
-              <option value="Applications Métiers">Applications M&eacute;tiers</option>
-              <option value="Site Web Professionnel">Site Web Professionnel</option>
-              <option value="Automatisation & IA">Automatisation &amp; IA</option>
-              <option value="Réparation Mobile & PC">R&eacute;paration Mobile &amp; PC</option>
-              <option value="Autre">Autre</option>
-            </select>
-            <div class="sub-service-group" id="sub-service-wrap">
-              <label for="f-sous-service">Pr&eacute;cisez votre besoin</label>
-              <select id="f-sous-service" name="sous_service">
-                <option value="" disabled selected>S&eacute;lectionnez une option</option>
-              </select>
+        <div class="project-card reveal">
+          <div class="project-preview" style="background:linear-gradient(145deg,#1a0a1e 0%,#3d1a4a 100%);">
+            <div class="mockup-screen">
+              <div class="mockup-topbar">
+                <span class="mockup-dot"></span>
+                <span class="mockup-dot"></span>
+                <span class="mockup-dot"></span>
+              </div>
+              <div class="mockup-body">
+                <div class="mkp-title" style="background:rgba(255,105,180,0.8);"></div>
+                <div class="mkp-row">
+                  <div class="mkp-block pink"></div>
+                  <div class="mkp-block pink small"></div>
+                </div>
+                <div class="mkp-row">
+                  <div class="mkp-block dark"></div>
+                  <div class="mkp-block dark"></div>
+                  <div class="mkp-block dark"></div>
+                </div>
+                <div class="mkp-btn pink"></div>
+              </div>
             </div>
+            <span class="preview-emoji">💅</span>
           </div>
-          <div class="form-group"><label for="f-need">Votre besoin</label><textarea id="f-need" placeholder="Décrivez brièvement votre projet ou votre besoin..." rows="4"></textarea></div>
-          <button class="btn" type="button" id="form-submit">Envoyer ma demande</button>
-          <div class="form-success" id="form-success">Merci ! Votre message a bien été envoyé. Je vous réponds sous 24h.</div>
+          <div class="project-info">
+            <span class="project-tag">Application métier</span>
+            <h3>App Onglerie</h3>
+            <p>Réservations, planning, espace client, programme fidélité. Accessible mobile et desktop.</p>
+          </div>
         </div>
+
+        <div class="project-card reveal reveal-delay-1">
+          <div class="project-preview" style="background:linear-gradient(145deg,#0a1628 0%,#0d2d5e 100%);">
+            <div class="mockup-screen">
+              <div class="mockup-topbar">
+                <span class="mockup-dot"></span>
+                <span class="mockup-dot"></span>
+                <span class="mockup-dot"></span>
+              </div>
+              <div class="mockup-body">
+                <div class="mkp-title" style="background:rgba(0,102,255,0.8);"></div>
+                <div class="mkp-row">
+                  <div class="mkp-block blue"></div>
+                  <div class="mkp-block blue small"></div>
+                </div>
+                <div class="mkp-row">
+                  <div class="mkp-block dark"></div>
+                  <div class="mkp-block dark"></div>
+                </div>
+                <div class="mkp-qr">
+                  <div class="qr-grid">
+                    <span></span><span></span><span></span>
+                    <span></span><span></span><span></span>
+                    <span></span><span></span><span></span>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <span class="preview-emoji">📦</span>
+          </div>
+          <div class="project-info">
+            <span class="project-tag">Application métier</span>
+            <h3>Gestion Livraisons & Événements</h3>
+            <p>Scanner QR, dashboard admin, gestion des réservations. PWA installable sur mobile.</p>
+          </div>
+        </div>
+
+        <div class="project-card reveal reveal-delay-2">
+          <div class="project-preview" style="background:linear-gradient(145deg,#0a0a0a 0%,#1a1a1a 100%);">
+            <div class="mockup-screen">
+              <div class="mockup-topbar">
+                <span class="mockup-dot"></span>
+                <span class="mockup-dot"></span>
+                <span class="mockup-dot"></span>
+              </div>
+              <div class="mockup-body">
+                <div class="mkp-hero orange"></div>
+                <div class="mkp-row">
+                  <div class="mkp-block dark"></div>
+                  <div class="mkp-block dark"></div>
+                  <div class="mkp-block dark"></div>
+                </div>
+                <div class="mkp-btn orange"></div>
+              </div>
+            </div>
+            <span class="preview-emoji">🎬</span>
+          </div>
+          <div class="project-info">
+            <span class="project-tag">Site vitrine</span>
+            <h3>Studio Créatif</h3>
+            <p>Site vitrine premium avec animations avancées, réservation en ligne et galerie interactive.</p>
+          </div>
+        </div>
+
+        <div class="project-card reveal reveal-delay-3">
+          <div class="project-preview" style="background:linear-gradient(145deg,#0f1f0f 0%,#1a3a1a 100%);">
+            <div class="mockup-screen">
+              <div class="mockup-topbar">
+                <span class="mockup-dot"></span>
+                <span class="mockup-dot"></span>
+                <span class="mockup-dot"></span>
+              </div>
+              <div class="mockup-body">
+                <div class="mkp-title" style="background:rgba(46,125,50,0.8);"></div>
+                <div class="mkp-chart">
+                  <span style="height:60%"></span>
+                  <span style="height:80%"></span>
+                  <span style="height:45%"></span>
+                  <span style="height:95%"></span>
+                  <span style="height:70%"></span>
+                </div>
+                <div class="mkp-row">
+                  <div class="mkp-block green small"></div>
+                  <div class="mkp-block green small"></div>
+                  <div class="mkp-block green small"></div>
+                </div>
+              </div>
+            </div>
+            <span class="preview-emoji">📊</span>
+          </div>
+          <div class="project-info">
+            <span class="project-tag">Outil de gestion</span>
+            <h3>Tableau de Bord Comptable</h3>
+            <p>Suivi des recettes, exports automatiques et tableau de bord pour restaurateur.</p>
+          </div>
+        </div>
+
       </div>
+      <button class="carousel-btn carousel-prev" onclick="scrollCarousel(-1)" aria-label="Précédent">&#8592;</button>
+      <button class="carousel-btn carousel-next" onclick="scrollCarousel(1)" aria-label="Suivant">&#8594;</button>
     </div>
   </div>
 </section>
 
-<!-- ═══ FOOTER ═══ -->
-<footer class="footer">
-  <div class="footer-inner">
-    <div>
-      <img id="logo-footer" src="./images/logo.png" alt="Nine Technologies" class="footer-logo" onerror="this.style.display='none';this.nextElementSibling.style.display='inline'">
-      <span class="footer-logo-placeholder" style="display:none;">Nine Technologies</span>
+<!-- ═══════════ À PROPOS ═══════════ -->
+<section class="section about" id="about">
+  <div class="section-header reveal">
+    <h2>L'humain derrière la technologie</h2>
+  </div>
+  <div class="about-content">
+    <div class="about-text reveal">
+      <p>Nine Technologies, c'est Marc-Antoine Pavadé — entrepreneur basé à Saint-Gaudens, avec une expérience terrain au contact des artisans, commerçants et PME de la région.</p>
+      <p>Je construis des outils digitaux qui fonctionnent dès le premier jour, sans formation longue, sans jargon.</p>
+      <p>Mon engagement : être présent après la livraison, pas seulement avant.</p>
     </div>
-    <p class="footer-text">&copy; 2026 Nine Technologies &mdash; SIREN 918 444 316 &mdash; Saint-Gaudens, France</p>
-    <div class="footer-links">
+    <img src="./images/portrait.jpg" alt="Marc-Antoine Pavadé — Nine Technologies" class="about-portrait reveal" onerror="this.style.display='none'">
+  </div>
+  <div class="about-values">
+    <div class="value-card reveal" style="transition-delay: 0ms;">
+      <h3>Précision</h3>
+      <p>Chaque détail compte. Rien n'est laissé au hasard.</p>
+    </div>
+    <div class="value-card reveal" style="transition-delay: 100ms;">
+      <h3>Réactivité</h3>
+      <p>Un problème signalé, une réponse rapide. Toujours.</p>
+    </div>
+    <div class="value-card reveal" style="transition-delay: 200ms;">
+      <h3>Fiabilité</h3>
+      <p>Des solutions robustes, un suivi dans la durée.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════ BLOG ═══════════ -->
+<section class="section blog" id="blog">
+  <div class="section-header reveal">
+    <h2>Blog &amp; Conseils</h2>
+    <p>Astuces tech, bonnes pratiques et actualités digitales depuis Saint-Gaudens.</p>
+  </div>
+  <div class="blog-grid">
+    <article class="blog-card reveal" style="transition-delay: 0ms;">
+      <span class="blog-tag">Réparation</span>
+      <h3>5 signes que votre téléphone a besoin d'une réparation</h3>
+      <p>Batterie qui se vide trop vite, écran figé, redémarrages intempestifs… Voici les signaux à ne pas ignorer.</p>
+      <a href="blog.html" class="blog-link">Lire l'article →</a>
+    </article>
+    <article class="blog-card reveal" style="transition-delay: 100ms;">
+      <span class="blog-tag">Business</span>
+      <h3>Pourquoi un site web est essentiel pour votre entreprise en 2026</h3>
+      <p>Visibilité, crédibilité, acquisition client : 3 raisons concrètes d'investir dans votre présence en ligne.</p>
+      <a href="blog.html" class="blog-link">Lire l'article →</a>
+    </article>
+    <article class="blog-card reveal" style="transition-delay: 200ms;">
+      <span class="blog-tag">Sécurité</span>
+      <h3>Comment protéger vos données : guide pratique</h3>
+      <p>Sauvegardes, mots de passe, antivirus : les bons réflexes pour sécuriser vos données personnelles et professionnelles.</p>
+      <a href="blog.html" class="blog-link">Lire l'article →</a>
+    </article>
+  </div>
+  <div class="blog-more reveal">
+    <a href="blog.html" class="btn-outline-dark">Voir tous les articles</a>
+  </div>
+</section>
+
+<!-- ═══════════ CONTACT ═══════════ -->
+<section class="section contact" id="contact">
+  <div class="section-header reveal">
+    <h2>Parlons de votre projet</h2>
+    <p>Un besoin, une idée, une question ? Écrivez-moi — je réponds sous 24h.</p>
+  </div>
+  <div class="contact-grid">
+    <div class="contact-info reveal">
+      <h3>Coordonnées</h3>
+      <div class="contact-item">
+        <div class="contact-item-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M15 10.5a3 3 0 11-6 0 3 3 0 016 0z"/><path stroke-linecap="round" stroke-linejoin="round" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1115 0z"/></svg>
+        </div>
+        <div class="contact-item-text">
+          <strong>Localisation</strong>
+          Saint-Gaudens, Occitanie (+ DOM-TOM à distance)
+        </div>
+      </div>
+      <div class="contact-item">
+        <div class="contact-item-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M2.25 6.75c0 8.284 6.716 15 15 15h2.25a2.25 2.25 0 002.25-2.25v-1.372c0-.516-.351-.966-.852-1.091l-4.423-1.106c-.44-.11-.902.055-1.173.417l-.97 1.293c-.282.376-.769.542-1.21.38a12.035 12.035 0 01-7.143-7.143c-.162-.441.004-.928.38-1.21l1.293-.97c.363-.271.527-.734.417-1.173L6.963 3.102a1.125 1.125 0 00-1.091-.852H4.5A2.25 2.25 0 002.25 4.5v2.25z"/></svg>
+        </div>
+        <div class="contact-item-text">
+          <strong>Téléphone</strong>
+          <a href="tel:+33780193096" style="color: var(--nt-accent);">07 80 19 30 96</a>
+        </div>
+      </div>
+      <div class="contact-item">
+        <div class="contact-item-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M21.75 6.75v10.5a2.25 2.25 0 01-2.25 2.25h-15a2.25 2.25 0 01-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0019.5 4.5h-15a2.25 2.25 0 00-2.25 2.25m19.5 0v.243a2.25 2.25 0 01-1.07 1.916l-7.5 4.615a2.25 2.25 0 01-2.36 0L3.32 8.91a2.25 2.25 0 01-1.07-1.916V6.75"/></svg>
+        </div>
+        <div class="contact-item-text">
+          <strong>Email</strong>
+          <a href="mailto:ninetechnologies@outlook.fr" style="color: var(--nt-accent);">ninetechnologies@outlook.fr</a>
+        </div>
+      </div>
+    </div>
+    <form class="contact-form reveal" id="contactForm">
+      <input type="hidden" name="access_key" value="d96fceb6-e215-4603-837a-acc13244b99d">
+      <input type="hidden" name="subject" value="Nouveau message depuis ninetechnologies.fr">
+      <input type="hidden" name="from_name" value="Nine Technologies">
+      <input type="checkbox" name="botcheck" style="display:none">
+      <div class="form-row">
+        <div class="form-group">
+          <label for="name">Nom *</label>
+          <input type="text" id="name" name="name" required placeholder="Votre nom">
+        </div>
+        <div class="form-group">
+          <label for="company">Entreprise</label>
+          <input type="text" id="company" name="company" placeholder="Votre entreprise">
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="email">Email *</label>
+        <input type="email" id="email" name="email" required placeholder="votre@email.com">
+      </div>
+      <div class="form-group">
+        <label for="service">Service souhaité</label>
+        <select id="service" name="service">
+          <option value="">Sélectionnez un service</option>
+          <option value="Applications Métiers">Applications Métiers</option>
+          <option value="Site Web Professionnel">Site Web Professionnel</option>
+          <option value="Automatisation & IA">Automatisation &amp; IA</option>
+          <option value="Réparation Mobile & PC">Réparation Mobile &amp; PC</option>
+          <option value="Autre">Autre</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="message">Votre besoin</label>
+        <textarea id="message" name="message" rows="4" placeholder="Décrivez votre projet ou besoin..."></textarea>
+      </div>
+      <button type="submit" class="form-submit" id="formSubmit">Envoyer ma demande</button>
+      <div class="form-message" id="formMessage"></div>
+    </form>
+  </div>
+</section>
+
+<!-- ═══════════ FOOTER ═══════════ -->
+<footer class="footer">
+  <div class="footer-grid">
+    <div class="footer-brand">
+      <img src="./logo.png" alt="Nine Technologies">
+      <p>Solutions digitales sur mesure pour les TPE/PME d'Occitanie et des DOM-TOM. Applications, sites web, automatisation, réparation.</p>
+    </div>
+    <div class="footer-col">
+      <h4>Navigation</h4>
       <a href="#services">Services</a>
-      <a href="#reparation">R&eacute;paration</a>
+      <a href="#reparation">Réparation</a>
       <a href="blog.html">Blog</a>
-      <a href="#about">&Agrave; propos</a>
+      <a href="#about">À propos</a>
       <a href="#contact">Contact</a>
       <a href="en.html">EN</a>
     </div>
+    <div class="footer-col">
+      <h4>Contact</h4>
+      <a href="tel:+33780193096">07 80 19 30 96</a>
+      <a href="mailto:ninetechnologies@outlook.fr">ninetechnologies@outlook.fr</a>
+      <a>Saint-Gaudens (31800)</a>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>&copy; 2026 Nine Technologies — SIREN 918 444 316 — Saint-Gaudens, France</p>
     <div class="footer-legal">
-      <a onclick="openLegal('mentions')">Mentions l&eacute;gales</a>
-      <a onclick="openLegal('cgv')">CGV</a>
-      <a onclick="openLegal('cgu')">CGU</a>
+      <button onclick="openModal('mentions')">Mentions légales</button>
+      <button onclick="openModal('cgv')">CGV</button>
+      <button onclick="openModal('cgu')">CGU</button>
     </div>
   </div>
 </footer>
 
-<!-- ═══ MODALE : MENTIONS LÉGALES ═══ -->
-<div class="legal-overlay" id="modal-mentions">
-  <div class="legal-modal">
-    <div class="legal-modal-header">
-      <h2>Mentions l&eacute;gales</h2>
-      <button class="legal-close" onclick="closeLegal()"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M6 18 18 6M6 6l12 12"/></svg></button>
-    </div>
-    <div class="legal-modal-body">
-      <p class="legal-update">Derni&egrave;re mise &agrave; jour : 6 mars 2026</p>
-
-      <h3>1. &Eacute;diteur du site</h3>
-      <p>Le site ninetechnologies.fr est &eacute;dit&eacute; par Marc-Antoine Pavad&eacute;, entrepreneur individuel exer&ccedil;ant sous le nom commercial Nine Technologies.</p>
-      <p>SIREN : 918 444 316 &mdash; Code APE : 6202A (Conseil en syst&egrave;mes et logiciels informatiques)</p>
-      <p>Si&egrave;ge social : Saint-Gaudens (31800), France</p>
-      <p>T&eacute;l&eacute;phone : 07 80 19 30 96</p>
-      <p>Email : ninetechnologies@outlook.fr</p>
-      <p>Directeur de la publication : Marc-Antoine Pavad&eacute;</p>
-
-      <h3>2. H&eacute;bergement</h3>
-      <p>Ce site est h&eacute;berg&eacute; par Vercel Inc., 340 S Lemon Ave #4133, Walnut, CA 91789, &Eacute;tats-Unis. Site : vercel.com.</p>
-
-      <h3>3. Propri&eacute;t&eacute; intellectuelle</h3>
-      <p>L'ensemble du contenu de ce site (textes, images, logo, charte graphique) est la propri&eacute;t&eacute; exclusive de Nine Technologies ou fait l'objet d'une autorisation d'utilisation. Toute reproduction, m&ecirc;me partielle, est interdite sans accord pr&eacute;alable &eacute;crit.</p>
-
-      <h3>4. Donn&eacute;es personnelles</h3>
-      <p>Les informations recueillies via le formulaire de contact sont destin&eacute;es exclusivement &agrave; Nine Technologies pour le traitement de votre demande. Elles ne sont ni c&eacute;d&eacute;es, ni vendues &agrave; des tiers.</p>
-      <p>Conform&eacute;ment au R&egrave;glement G&eacute;n&eacute;ral sur la Protection des Donn&eacute;es (RGPD) et &agrave; la loi Informatique et Libert&eacute;s, vous disposez d'un droit d'acc&egrave;s, de rectification, de suppression et de portabilit&eacute; de vos donn&eacute;es. Pour exercer ces droits, contactez : ninetechnologies@outlook.fr.</p>
-      <p>Responsable du traitement : Marc-Antoine Pavad&eacute;.</p>
-
-      <h3>5. Cookies</h3>
-      <p>Ce site n'utilise aucun cookie de tra&ccedil;age ni outil d'analyse comportementale. Aucune donn&eacute;e de navigation n'est collect&eacute;e &agrave; des fins publicitaires.</p>
-
-      <h3>6. Liens externes</h3>
-      <p>Ce site peut contenir des liens vers des sites tiers. Nine Technologies ne saurait &ecirc;tre tenu responsable du contenu de ces sites ni de leur politique de confidentialit&eacute;.</p>
-
-      <h3>7. Cr&eacute;dits</h3>
-      <p>Conception et d&eacute;veloppement : Nine Technologies. Typographie : DM Sans (Google Fonts, licence Open Font).</p>
-    </div>
-  </div>
-</div>
-
-<!-- ═══ MODALE : CGV ═══ -->
-<div class="legal-overlay" id="modal-cgv">
-  <div class="legal-modal">
-    <div class="legal-modal-header">
-      <h2>Conditions G&eacute;n&eacute;rales de Vente</h2>
-      <button class="legal-close" onclick="closeLegal()"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M6 18 18 6M6 6l12 12"/></svg></button>
-    </div>
-    <div class="legal-modal-body">
-      <p class="legal-update">Derni&egrave;re mise &agrave; jour : 6 mars 2026</p>
-
-      <h3>Article 1 &mdash; Prestataire</h3>
-      <p>Nine Technologies &mdash; Marc-Antoine Pavad&eacute;, entrepreneur individuel. SIREN 918 444 316 &mdash; APE 6202A. Si&egrave;ge : Saint-Gaudens (31800). Email : ninetechnologies@outlook.fr. T&eacute;l. : 07 80 19 30 96.</p>
-      <p>Nine Technologies rel&egrave;ve du r&eacute;gime de la micro-entreprise. TVA non applicable, article 293 B du Code g&eacute;n&eacute;ral des imp&ocirc;ts.</p>
-
-      <h3>Article 2 &mdash; Champ d'application</h3>
-      <p>Les pr&eacute;sentes CGV s'appliquent &agrave; toute prestation de services propos&eacute;e par Nine Technologies : d&eacute;veloppement d'applications m&eacute;tiers, cr&eacute;ation de sites web, automatisation de processus et int&eacute;gration d'intelligence artificielle. Toute commande implique l'acceptation sans r&eacute;serve des pr&eacute;sentes conditions.</p>
-
-      <h3>Article 3 &mdash; Devis et commande</h3>
-      <p>Chaque prestation fait l'objet d'un devis d&eacute;taill&eacute; gratuit, pr&eacute;cisant le p&eacute;rim&egrave;tre, les livrables, le calendrier pr&eacute;visionnel et le prix. Le devis est valable 30 jours &agrave; compter de sa date d'&eacute;mission. La commande est r&eacute;put&eacute;e ferme &agrave; r&eacute;ception du devis sign&eacute; et du versement de l'acompte.</p>
-
-      <h3>Article 4 &mdash; Tarifs et paiement</h3>
-      <p>Les prix sont indiqu&eacute;s en euros, nets de taxes (TVA non applicable). Le paiement s'effectue selon l'&eacute;ch&eacute;ancier d&eacute;fini au devis, g&eacute;n&eacute;ralement : 30 % &agrave; la commande, 70 % &agrave; la livraison. Le paiement est accept&eacute; par virement bancaire ou ch&egrave;que.</p>
-      <p>Tout retard de paiement entra&icirc;ne de plein droit l'application de p&eacute;nalit&eacute;s de retard au taux de 3 fois le taux d'int&eacute;r&ecirc;t l&eacute;gal en vigueur, ainsi qu'une indemnit&eacute; forfaitaire de recouvrement de 40 &euro; conform&eacute;ment aux articles L.441-10 et D.441-5 du Code de commerce.</p>
-
-      <h3>Article 5 &mdash; D&eacute;lais de r&eacute;alisation</h3>
-      <p>Les d&eacute;lais sont communiqu&eacute;s &agrave; titre indicatif dans le devis. Ils peuvent &ecirc;tre ajust&eacute;s en fonction de la r&eacute;activit&eacute; du client pour fournir les &eacute;l&eacute;ments n&eacute;cessaires (contenus, acc&egrave;s, validations). Nine Technologies s'engage &agrave; informer le client sans d&eacute;lai de tout retard pr&eacute;visible.</p>
-
-      <h3>Article 6 &mdash; Obligations du client</h3>
-      <p>Le client s'engage &agrave; fournir dans les d&eacute;lais convenus l'ensemble des informations, contenus et acc&egrave;s n&eacute;cessaires &agrave; la bonne ex&eacute;cution de la prestation. Tout retard imputable au client peut entra&icirc;ner un report &eacute;quivalent du calendrier de livraison.</p>
-
-      <h3>Article 7 &mdash; Validation et r&eacute;ception</h3>
-      <p>Chaque &eacute;tape cl&eacute; fait l'objet d'une validation &eacute;crite du client (email ou signature). &Agrave; la livraison finale, le client dispose d'un d&eacute;lai de 7 jours pour formuler ses r&eacute;serves. En l'absence de retour dans ce d&eacute;lai, la prestation est r&eacute;put&eacute;e accept&eacute;e.</p>
-
-      <h3>Article 8 &mdash; Propri&eacute;t&eacute; intellectuelle</h3>
-      <p>Le transfert de propri&eacute;t&eacute; intellectuelle des livrables au client est effectif apr&egrave;s paiement int&eacute;gral du prix. Nine Technologies se r&eacute;serve le droit de mentionner la r&eacute;alisation dans son portfolio, sauf opposition &eacute;crite du client.</p>
-      <p>Les outils, biblioth&egrave;ques et frameworks tiers utilis&eacute;s restent soumis &agrave; leurs licences respectives.</p>
-
-      <h3>Article 9 &mdash; Garantie et maintenance</h3>
-      <p>Nine Technologies garantit la conformit&eacute; des livrables au cahier des charges valid&eacute;. Une p&eacute;riode de garantie corrective de 30 jours est incluse apr&egrave;s r&eacute;ception. Les corrections de bugs sont gratuites pendant cette p&eacute;riode. Toute &eacute;volution ou ajout fonctionnel fera l'objet d'un devis compl&eacute;mentaire.</p>
-
-      <h3>Article 10 &mdash; R&eacute;siliation</h3>
-      <p>En cas de r&eacute;siliation anticip&eacute;e par le client, les sommes d&eacute;j&agrave; vers&eacute;es restent acquises &agrave; Nine Technologies au titre des travaux r&eacute;alis&eacute;s. Si l'avancement d&eacute;passe le montant des acomptes per&ccedil;us, le compl&eacute;ment est d&ucirc;. En cas de manquement grave d'une partie, la r&eacute;siliation peut intervenir de plein droit 15 jours apr&egrave;s mise en demeure rest&eacute;e sans effet.</p>
-
-      <h3>Article 11 &mdash; Responsabilit&eacute;</h3>
-      <p>La responsabilit&eacute; de Nine Technologies est limit&eacute;e au montant total de la prestation concern&eacute;e. Nine Technologies ne saurait &ecirc;tre tenu responsable des dommages indirects (perte de chiffre d'affaires, perte de donn&eacute;es, pr&eacute;judice d'image) ni des dysfonctionnements li&eacute;s &agrave; l'environnement technique du client.</p>
-
-      <h3>Article 12 &mdash; Force majeure</h3>
-      <p>Aucune partie ne pourra &ecirc;tre tenue responsable de l'inex&eacute;cution de ses obligations si cette inex&eacute;cution r&eacute;sulte d'un cas de force majeure tel que d&eacute;fini par l'article 1218 du Code civil.</p>
-
-      <h3>Article 13 &mdash; Confidentialit&eacute;</h3>
-      <p>Chaque partie s'engage &agrave; traiter comme confidentielles toutes les informations techniques, commerciales ou financi&egrave;res &eacute;chang&eacute;es dans le cadre de la prestation, pendant sa dur&eacute;e et dans les 2 ans suivant son terme.</p>
-
-      <h3>Article 14 &mdash; Droit applicable et litiges</h3>
-      <p>Les pr&eacute;sentes CGV sont soumises au droit fran&ccedil;ais. En cas de litige, les parties s'engagent &agrave; rechercher une solution amiable. &Agrave; d&eacute;faut, le litige sera port&eacute; devant les tribunaux comp&eacute;tents du ressort de Toulouse.</p>
-    </div>
-  </div>
-</div>
-
-<!-- ═══ MODALE : CGU ═══ -->
-<div class="legal-overlay" id="modal-cgu">
-  <div class="legal-modal">
-    <div class="legal-modal-header">
-      <h2>Conditions G&eacute;n&eacute;rales d'Utilisation</h2>
-      <button class="legal-close" onclick="closeLegal()"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M6 18 18 6M6 6l12 12"/></svg></button>
-    </div>
-    <div class="legal-modal-body">
-      <p class="legal-update">Derni&egrave;re mise &agrave; jour : 6 mars 2026</p>
-
-      <h3>Article 1 &mdash; Objet</h3>
-      <p>Les pr&eacute;sentes Conditions G&eacute;n&eacute;rales d'Utilisation (CGU) d&eacute;finissent les modalit&eacute;s d'acc&egrave;s et d'utilisation du site ninetechnologies.fr, &eacute;dit&eacute; par Nine Technologies. L'acc&egrave;s au site vaut acceptation pleine et enti&egrave;re des pr&eacute;sentes CGU.</p>
-
-      <h3>Article 2 &mdash; Acc&egrave;s au site</h3>
-      <p>Le site est accessible gratuitement &agrave; tout utilisateur disposant d'un acc&egrave;s internet. Nine Technologies met tout en &oelig;uvre pour maintenir le site accessible en permanence, mais ne saurait &ecirc;tre tenu responsable d'interruptions li&eacute;es &agrave; la maintenance, &agrave; des pannes techniques ou &agrave; des cas de force majeure.</p>
-
-      <h3>Article 3 &mdash; Formulaire de contact</h3>
-      <p>Le site propose un formulaire de contact permettant aux visiteurs d'adresser une demande &agrave; Nine Technologies. Les informations collect&eacute;es (nom, entreprise, email, description du besoin) sont utilis&eacute;es exclusivement pour traiter la demande et y r&eacute;pondre. Elles ne sont conserv&eacute;es que le temps n&eacute;cessaire au traitement, dans la limite de 12 mois.</p>
-
-      <h3>Article 4 &mdash; Propri&eacute;t&eacute; intellectuelle</h3>
-      <p>L'ensemble des &eacute;l&eacute;ments du site (textes, visuels, logo, mise en page, code source) est prot&eacute;g&eacute; par le droit de la propri&eacute;t&eacute; intellectuelle. Toute reproduction, repr&eacute;sentation ou exploitation non autoris&eacute;e constitue une contrefa&ccedil;on passible de sanctions civiles et p&eacute;nales.</p>
-
-      <h3>Article 5 &mdash; Comportement de l'utilisateur</h3>
-      <p>L'utilisateur s'engage &agrave; utiliser le site de mani&egrave;re conforme &agrave; la loi et aux bonnes pratiques. Il est interdit de tenter d'acc&eacute;der &agrave; des zones non autoris&eacute;es du site, d'introduire du contenu malveillant, ou d'utiliser le formulaire de contact &agrave; des fins de prospection commerciale non sollicit&eacute;e.</p>
-
-      <h3>Article 6 &mdash; Protection des donn&eacute;es personnelles</h3>
-      <p>Conform&eacute;ment au RGPD (R&egrave;glement UE 2016/679) et &agrave; la loi Informatique et Libert&eacute;s du 6 janvier 1978 modifi&eacute;e, l'utilisateur dispose d'un droit d'acc&egrave;s, de rectification, de suppression, de limitation et de portabilit&eacute; de ses donn&eacute;es personnelles.</p>
-      <p>Pour exercer ces droits : ninetechnologies@outlook.fr. Responsable du traitement : Marc-Antoine Pavad&eacute;.</p>
-      <p>En cas de litige non r&eacute;solu, l'utilisateur peut adresser une r&eacute;clamation &agrave; la CNIL (Commission Nationale de l'Informatique et des Libert&eacute;s).</p>
-
-      <h3>Article 7 &mdash; Cookies</h3>
-      <p>Ce site n'utilise aucun cookie de tra&ccedil;age, cookie tiers ou outil d'analyse statistique. Aucune donn&eacute;e de navigation n'est collect&eacute;e.</p>
-
-      <h3>Article 8 &mdash; Liens hypertextes</h3>
-      <p>Le site peut contenir des liens vers des sites externes. Nine Technologies n'exerce aucun contr&ocirc;le sur ces sites et d&eacute;cline toute responsabilit&eacute; quant &agrave; leur contenu et leur politique de confidentialit&eacute;.</p>
-
-      <h3>Article 9 &mdash; Limitation de responsabilit&eacute;</h3>
-      <p>Les informations pr&eacute;sent&eacute;es sur le site sont fournies &agrave; titre indicatif et ne constituent pas un engagement contractuel. Nine Technologies ne saurait &ecirc;tre tenu responsable des erreurs, omissions, ou de l'indisponibilit&eacute; temporaire du site.</p>
-
-      <h3>Article 10 &mdash; Modification des CGU</h3>
-      <p>Nine Technologies se r&eacute;serve le droit de modifier les pr&eacute;sentes CGU &agrave; tout moment. La version en vigueur est celle accessible sur le site &agrave; la date de consultation. L'utilisateur est invit&eacute; &agrave; les consulter r&eacute;guli&egrave;rement.</p>
-
-      <h3>Article 11 &mdash; Droit applicable</h3>
-      <p>Les pr&eacute;sentes CGU sont r&eacute;gies par le droit fran&ccedil;ais. Tout litige relatif &agrave; l'utilisation du site sera soumis aux tribunaux comp&eacute;tents du ressort de Toulouse.</p>
-    </div>
-  </div>
-</div>
-
-<!-- ═══ JAVASCRIPT ═══ -->
-<script>
-(function() {
-  'use strict';
-
-  // Nav scroll effect
-  var nav = document.getElementById('nav');
-  window.addEventListener('scroll', function() {
-    if ((window.pageYOffset || document.documentElement.scrollTop) > 20) {
-      nav.classList.add('scrolled');
-    } else {
-      nav.classList.remove('scrolled');
-    }
-  }, { passive: true });
-
-  // Burger menu
-  var burger = document.getElementById('burger');
-  var navLinks = document.getElementById('nav-links');
-  burger.addEventListener('click', function() {
-    navLinks.classList.toggle('open');
-  });
-
-  // Close menu on link click (mobile)
-  var links = navLinks.querySelectorAll('a');
-  for (var i = 0; i < links.length; i++) {
-    links[i].addEventListener('click', function() {
-      navLinks.classList.remove('open');
-    });
-  }
-
-  // Sub-service dynamic dropdown
-  var subServiceMap = {
-    'Applications Métiers': ['Nouvelle application', 'Évolution app existante', 'Intégration API', 'Devis'],
-    'Site Web Professionnel': ['Création from scratch', 'Refonte', 'Landing page', 'E-commerce'],
-    'Automatisation & IA': ['Automatisation tâches', 'Intégration IA', 'Connexion outils', 'Devis'],
-    'Réparation Mobile & PC': ['Écran cassé', 'Batterie', 'Réinstall Windows', 'Récup données', 'Autre panne']
-  };
-  var serviceSelect = document.getElementById('f-service');
-  var subWrap = document.getElementById('sub-service-wrap');
-  var subSelect = document.getElementById('f-sous-service');
-  serviceSelect.addEventListener('change', function() {
-    var opts = subServiceMap[this.value];
-    if (opts) {
-      subSelect.innerHTML = '<option value="" disabled selected>S\u00e9lectionnez une option</option>';
-      opts.forEach(function(o) {
-        var el = document.createElement('option');
-        el.value = o; el.textContent = o;
-        subSelect.appendChild(el);
-      });
-      subWrap.classList.add('visible');
-    } else {
-      subWrap.classList.remove('visible');
-      subSelect.innerHTML = '<option value="" disabled selected>S\u00e9lectionnez une option</option>';
-    }
-  });
-
-  // Form submit via Web3Forms
-  var submitBtn = document.getElementById('form-submit');
-  var successMsg = document.getElementById('form-success');
-  submitBtn.addEventListener('click', function() {
-    var name = document.getElementById('f-name').value.trim();
-    var email = document.getElementById('f-email').value.trim();
-    var company = document.getElementById('f-company').value.trim();
-    var need = document.getElementById('f-need').value.trim();
-    var service = document.getElementById('f-service').value || 'Non précisé';
-    var sousService = document.getElementById('f-sous-service').value || '';
-    if (!name || !email) { return; }
-    submitBtn.textContent = 'Envoi en cours...';
-    submitBtn.disabled = true;
-    var formData = {
-      access_key: 'd96fceb6-e215-4603-837a-acc13244b99d',
-      subject: 'Nouveau message depuis ninetechnologies.vercel.app',
-      from_name: 'Nine Technologies',
-      name: name,
-      email: email,
-      Entreprise: company,
-      Service: service,
-      sous_service: sousService,
-      Besoin: need
-    };
-    fetch('https://api.web3forms.com/submit', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
-      body: JSON.stringify(formData)
-    }).then(function(response) {
-      return response.json();
-    }).then(function(data) {
-      if (data.success) {
-        successMsg.classList.add('visible');
-        submitBtn.textContent = 'Message envoy\u00e9';
-        document.getElementById('f-name').value = '';
-        document.getElementById('f-company').value = '';
-        document.getElementById('f-email').value = '';
-        document.getElementById('f-need').value = '';
-        document.getElementById('f-service').selectedIndex = 0;
-        document.getElementById('f-sous-service').innerHTML = '<option value="" disabled selected>S\u00e9lectionnez une option</option>';
-        document.getElementById('sub-service-wrap').classList.remove('visible');
-        setTimeout(function() {
-          successMsg.classList.remove('visible');
-          submitBtn.textContent = 'Envoyer ma demande';
-          submitBtn.disabled = false;
-        }, 5000);
-      } else {
-        submitBtn.textContent = 'Erreur, r\u00e9essayez';
-        submitBtn.disabled = false;
-      }
-    }).catch(function() {
-      submitBtn.textContent = 'Erreur, r\u00e9essayez';
-      submitBtn.disabled = false;
-    });
-  });
-
-
-  // Scroll reveal animations
-  var reveals = document.querySelectorAll('.reveal');
-  function checkReveal() {
-    for (var i = 0; i < reveals.length; i++) {
-      var top = reveals[i].getBoundingClientRect().top;
-      if (top < window.innerHeight - 60) {
-        reveals[i].classList.add('visible');
-      }
-    }
-  }
-  window.addEventListener('scroll', checkReveal, { passive: true });
-  checkReveal();
-})();
-
-// Legal modals
-function openLegal(type) {
-  var id = 'modal-' + type;
-  var el = document.getElementById(id);
-  if (el) { el.classList.add('active'); document.body.style.overflow = 'hidden'; }
-}
-function closeLegal() {
-  var overlays = document.querySelectorAll('.legal-overlay');
-  for (var i = 0; i < overlays.length; i++) { overlays[i].classList.remove('active'); }
-  document.body.style.overflow = '';
-}
-document.addEventListener('click', function(e) {
-  if (e.target.classList.contains('legal-overlay')) { closeLegal(); }
-});
-document.addEventListener('keydown', function(e) {
-  if (e.key === 'Escape') { closeLegal(); }
-});
-</script>
-
-
-
-<a href="https://wa.me/33780193096?text=Bonjour%2C%20je%20vous%20contacte%20depuis%20votre%20site%20Nine%20Technologies." class="wa-btn" target="_blank" rel="noopener" aria-label="Nous contacter sur WhatsApp">
+<!-- ═══════════ WHATSAPP FLOTTANT ═══════════ -->
+<a href="https://wa.me/33780193096" target="_blank" rel="noopener" class="whatsapp-btn" aria-label="Discutons sur WhatsApp">
   <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+  <span class="whatsapp-tooltip">Discutons sur WhatsApp</span>
 </a>
 
+<!-- ═══════════ MODALES LÉGALES ═══════════ -->
+<div class="modal-overlay" id="modal-mentions">
+  <div class="modal">
+    <button class="modal-close" onclick="closeModal('mentions')">&times;</button>
+    <h2>Mentions légales</h2>
+    <h3>Éditeur du site</h3>
+    <p>Marc-Antoine Pavadé, entrepreneur individuel<br>Nine Technologies<br>SIREN : 918 444 316 — Code APE : 6202A<br>Siège : Saint-Gaudens (31800), France<br>Tél : 07 80 19 30 96<br>Email : ninetechnologies@outlook.fr</p>
+    <h3>Directeur de publication</h3>
+    <p>Marc-Antoine Pavadé</p>
+    <h3>Hébergement</h3>
+    <p>Vercel Inc., 340 S Lemon Ave #4133, Walnut, CA 91789, États-Unis</p>
+    <h3>Propriété intellectuelle</h3>
+    <p>L'ensemble du contenu de ce site (textes, images, logo, graphismes) est la propriété exclusive de Nine Technologies, sauf mention contraire. Toute reproduction, même partielle, est interdite sans autorisation préalable.</p>
+    <h3>Protection des données (RGPD)</h3>
+    <p>Les données collectées via le formulaire de contact sont utilisées uniquement pour répondre à votre demande. Elles ne sont ni cédées, ni vendues à des tiers.</p>
+    <p>Vous disposez d'un droit d'accès, de rectification et de suppression de vos données. Pour exercer ces droits, contactez : ninetechnologies@outlook.fr</p>
+    <p>Responsable du traitement : Marc-Antoine Pavadé</p>
+    <h3>Cookies</h3>
+    <p>Ce site n'utilise aucun cookie de traçage ni analytics comportemental.</p>
+  </div>
+</div>
+
+<div class="modal-overlay" id="modal-cgv">
+  <div class="modal">
+    <button class="modal-close" onclick="closeModal('cgv')">&times;</button>
+    <h2>Conditions Générales de Vente</h2>
+    <h3>Prestataire</h3>
+    <p>Nine Technologies — Marc-Antoine Pavadé, entrepreneur individuel<br>SIREN : 918 444 316 — Code APE : 6202A<br>Siège : Saint-Gaudens (31800), France<br>TVA non applicable, article 293B du CGI</p>
+    <h3>Champ d'application</h3>
+    <p>Les présentes CGV s'appliquent à toute prestation de développement d'applications, création de sites web, automatisation et intelligence artificielle réalisée par Nine Technologies.</p>
+    <h3>Devis et commande</h3>
+    <p>Tout projet fait l'objet d'un devis gratuit, valable 30 jours. La commande est considérée comme ferme à réception du devis signé accompagné de l'acompte.</p>
+    <h3>Conditions de paiement</h3>
+    <p>30% à la commande, 70% à la livraison. Paiement par virement bancaire ou chèque.</p>
+    <h3>Retard de paiement</h3>
+    <p>En cas de retard de paiement, des pénalités seront appliquées au taux de 3 fois le taux d'intérêt légal, ainsi qu'une indemnité forfaitaire de 40€ pour frais de recouvrement (articles L.441-10 et D.441-5 du Code de commerce).</p>
+    <h3>Livraison</h3>
+    <p>Les délais de livraison sont donnés à titre indicatif et précisés au devis. Les cas de force majeure sont applicables.</p>
+    <h3>Propriété intellectuelle</h3>
+    <p>La propriété intellectuelle des livrables est transférée au client après paiement intégral de la prestation.</p>
+    <h3>Garantie</h3>
+    <p>Une garantie de 3 mois après livraison couvre les bugs non signalés à la réception.</p>
+    <h3>Confidentialité</h3>
+    <p>Les informations du client sont traitées avec la plus stricte discrétion.</p>
+    <h3>Litiges</h3>
+    <p>En cas de litige, une résolution amiable sera privilégiée. À défaut, le Tribunal de Commerce de Toulouse sera compétent.</p>
+  </div>
+</div>
+
+<div class="modal-overlay" id="modal-cgu">
+  <div class="modal">
+    <button class="modal-close" onclick="closeModal('cgu')">&times;</button>
+    <h2>Conditions Générales d'Utilisation</h2>
+    <h3>Objet</h3>
+    <p>Les présentes CGU régissent l'utilisation du site ninetechnologies.fr, édité par Nine Technologies.</p>
+    <h3>Accès au site</h3>
+    <p>L'accès au site est libre et ne nécessite aucune inscription.</p>
+    <h3>Propriété intellectuelle</h3>
+    <p>L'ensemble du contenu du site est protégé par le droit d'auteur. Toute reproduction non autorisée constitue une contrefaçon.</p>
+    <h3>Liens externes</h3>
+    <p>Le site peut contenir des liens vers des sites tiers. Nine Technologies décline toute responsabilité quant au contenu de ces sites.</p>
+    <h3>Disponibilité</h3>
+    <p>Nine Technologies s'efforce d'assurer la meilleure disponibilité possible du site, sans toutefois garantir une continuité de service absolue.</p>
+    <h3>Droit applicable</h3>
+    <p>Les présentes CGU sont soumises au droit français. En cas de litige, le tribunal compétent est celui de Saint-Gaudens.</p>
+  </div>
+</div>
+
+<!-- ═══════════ SCRIPTS ═══════════ -->
+<script>
+/* ── Hero Canvas Particles ── */
+(function() {
+  const canvas = document.getElementById('heroCanvas');
+  if (!canvas) return;
+  const ctx = canvas.getContext('2d');
+  let w, h, particles = [];
+
+  function resize() {
+    w = canvas.width = canvas.parentElement.offsetWidth;
+    h = canvas.height = canvas.parentElement.offsetHeight;
+  }
+  resize();
+  window.addEventListener('resize', resize);
+
+  for (let i = 0; i < 60; i++) {
+    particles.push({
+      x: Math.random() * w,
+      y: Math.random() * h,
+      r: Math.random() * 2 + 1,
+      dx: (Math.random() - 0.5) * 0.3,
+      dy: (Math.random() - 0.5) * 0.3
+    });
+  }
+
+  function draw() {
+    ctx.clearRect(0, 0, w, h);
+    ctx.fillStyle = 'rgba(0, 102, 255, 0.04)';
+    for (const p of particles) {
+      p.x += p.dx;
+      p.y += p.dy;
+      if (p.x < 0) p.x = w;
+      if (p.x > w) p.x = 0;
+      if (p.y < 0) p.y = h;
+      if (p.y > h) p.y = 0;
+      ctx.beginPath();
+      ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
+      ctx.fill();
+    }
+    requestAnimationFrame(draw);
+  }
+  draw();
+})();
+
+/* ── Navigation: scroll spy + blur ── */
+(function() {
+  const nav = document.getElementById('navbar');
+  const hero = document.getElementById('hero');
+  const sections = document.querySelectorAll('section[id]');
+  const navLinks = document.querySelectorAll('.nav-links a:not(.nav-cta)');
+
+  function onScroll() {
+    const scrollY = window.scrollY;
+    const heroBottom = hero.offsetTop + hero.offsetHeight - 100;
+
+    if (scrollY > heroBottom) {
+      nav.classList.remove('at-hero');
+      nav.classList.add('scrolled');
+    } else {
+      nav.classList.add('at-hero');
+      nav.classList.remove('scrolled');
+    }
+
+    // Scroll spy
+    let current = '';
+    for (const section of sections) {
+      if (scrollY >= section.offsetTop - 200) {
+        current = section.getAttribute('id');
+      }
+    }
+    navLinks.forEach(link => {
+      link.classList.remove('active');
+      if (link.getAttribute('href') === '#' + current) {
+        link.classList.add('active');
+      }
+    });
+  }
+
+  window.addEventListener('scroll', onScroll, { passive: true });
+  onScroll();
+})();
+
+/* ── Mobile menu ── */
+(function() {
+  const burger = document.getElementById('burger');
+  const menu = document.getElementById('mobileMenu');
+  const overlay = document.getElementById('mobileOverlay');
+  const links = document.querySelectorAll('.mobile-link');
+
+  function toggle() {
+    burger.classList.toggle('open');
+    menu.classList.toggle('open');
+    overlay.classList.toggle('open');
+    document.body.style.overflow = menu.classList.contains('open') ? 'hidden' : '';
+  }
+
+  burger.addEventListener('click', toggle);
+  overlay.addEventListener('click', toggle);
+  links.forEach(l => l.addEventListener('click', toggle));
+})();
+
+/* ── Scroll Reveal ── */
+(function() {
+  const reveals = document.querySelectorAll('.reveal');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.15 });
+
+  reveals.forEach(el => observer.observe(el));
+})();
+
+/* ── Animated Counters ── */
+(function() {
+  const counters = document.querySelectorAll('.counter');
+  let started = false;
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting && !started) {
+        started = true;
+        counters.forEach(counter => {
+          const target = parseInt(counter.dataset.target);
+          const duration = 1500;
+          const start = performance.now();
+
+          function update(now) {
+            const elapsed = now - start;
+            const progress = Math.min(elapsed / duration, 1);
+            const eased = 1 - Math.pow(1 - progress, 3);
+            counter.textContent = Math.round(target * eased);
+            if (progress < 1) requestAnimationFrame(update);
+          }
+          requestAnimationFrame(update);
+        });
+      }
+    });
+  }, { threshold: 0.3 });
+
+  const statsSection = document.getElementById('stats');
+  if (statsSection) observer.observe(statsSection);
+})();
+
+/* ── Contact Form ── */
+(function() {
+  const form = document.getElementById('contactForm');
+  const btn = document.getElementById('formSubmit');
+  const msg = document.getElementById('formMessage');
+
+  form.addEventListener('submit', async function(e) {
+    e.preventDefault();
+    btn.disabled = true;
+    btn.textContent = 'Envoi en cours...';
+    msg.className = 'form-message';
+    msg.style.display = 'none';
+
+    try {
+      const data = new FormData(form);
+      const res = await fetch('https://api.web3forms.com/submit', {
+        method: 'POST',
+        body: data
+      });
+      const json = await res.json();
+
+      if (json.success) {
+        msg.className = 'form-message success';
+        msg.textContent = 'Merci ! Votre message a bien été envoyé. Je vous réponds sous 24h.';
+        form.reset();
+      } else {
+        throw new Error(json.message || 'Erreur');
+      }
+    } catch (err) {
+      msg.className = 'form-message error';
+      msg.textContent = 'Une erreur est survenue. Veuillez réessayer ou me contacter directement.';
+    }
+
+    btn.disabled = false;
+    btn.textContent = 'Envoyer ma demande';
+  });
+})();
+
+/* ── Modals ── */
+function openModal(name) {
+  document.getElementById('modal-' + name).classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+function closeModal(name) {
+  document.getElementById('modal-' + name).classList.remove('open');
+  document.body.style.overflow = '';
+}
+document.querySelectorAll('.modal-overlay').forEach(overlay => {
+  overlay.addEventListener('click', function(e) {
+    if (e.target === this) {
+      this.classList.remove('open');
+      document.body.style.overflow = '';
+    }
+  });
+});
+
+/* ── Carousel ── */
+function scrollCarousel(dir) {
+  const track = document.getElementById('carousel-track');
+  track.scrollBy({ left: dir * 330, behavior: 'smooth' });
+}
+</script>
 </body>
 </html>
