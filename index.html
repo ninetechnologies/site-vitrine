@@ -228,16 +228,24 @@ h1, h2, h3 { font-family: var(--font-heading); font-weight: 700; line-height: 1.
   text-align: center;
   padding: 120px 24px 80px;
 }
-.hero-particles {
-  position: absolute;
-  inset: 0;
-  overflow: hidden;
-}
-.hero-particles svg {
+.hero-video {
   position: absolute;
   inset: 0;
   width: 100%;
   height: 100%;
+  object-fit: cover;
+  z-index: 0;
+  pointer-events: none;
+}
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(10,14,39,0.40) 0%, rgba(10,14,39,0.60) 100%);
+  z-index: 1;
+}
+@media (prefers-reduced-motion: reduce) {
+  .hero-video { display: none; }
+  .hero { background-image: url('./hero-poster.jpg'); background-size: cover; background-position: center; }
 }
 .hero-content {
   position: relative;
@@ -259,8 +267,8 @@ h1, h2, h3 { font-family: var(--font-heading); font-weight: 700; line-height: 1.
   to {
     opacity: 1;
     transform: scale(1);
-    filter: drop-shadow(0 0 40px rgba(0,102,255,0.6))
-            drop-shadow(0 0 80px rgba(0,102,255,0.3));
+    filter: drop-shadow(0 0 20px rgba(0,102,255,0.4))
+            drop-shadow(0 0 40px rgba(0,102,255,0.2));
   }
 }
 .hero h1 {
@@ -1171,9 +1179,11 @@ h1, h2, h3 { font-family: var(--font-heading); font-weight: 700; line-height: 1.
 
 <!-- ═══════════ HERO ═══════════ -->
 <section class="hero" id="hero">
-  <div class="hero-particles">
-    <canvas id="heroCanvas"></canvas>
-  </div>
+  <video class="hero-video" autoplay muted loop playsinline preload="metadata" poster="./hero-poster.jpg" aria-hidden="true">
+    <source src="./hero-mobile.mp4" type="video/mp4" media="(max-width: 768px)">
+    <source src="./hero-desktop.mp4" type="video/mp4">
+  </video>
+  <div class="hero-overlay"></div>
   <div class="hero-content">
     <img src="./logo.png" alt="Nine Technologies" class="hero-logo" width="140" height="140">
     <h1>Solutions digitales sur mesure</h1>
@@ -1808,47 +1818,17 @@ h1, h2, h3 { font-family: var(--font-heading); font-weight: 700; line-height: 1.
 
 <!-- ═══════════ SCRIPTS ═══════════ -->
 <script>
-/* ── Hero Canvas Particles ── */
+/* ── Hero Video : fallback poster si autoplay bloqué ── */
 (function() {
-  const canvas = document.getElementById('heroCanvas');
-  if (!canvas) return;
-  const ctx = canvas.getContext('2d');
-  let w, h, particles = [];
-
-  function resize() {
-    w = canvas.width = canvas.parentElement.offsetWidth;
-    h = canvas.height = canvas.parentElement.offsetHeight;
-  }
-  resize();
-  window.addEventListener('resize', resize);
-
-  for (let i = 0; i < 60; i++) {
-    particles.push({
-      x: Math.random() * w,
-      y: Math.random() * h,
-      r: Math.random() * 2 + 1,
-      dx: (Math.random() - 0.5) * 0.3,
-      dy: (Math.random() - 0.5) * 0.3
-    });
-  }
-
-  function draw() {
-    ctx.clearRect(0, 0, w, h);
-    ctx.fillStyle = 'rgba(0, 102, 255, 0.04)';
-    for (const p of particles) {
-      p.x += p.dx;
-      p.y += p.dy;
-      if (p.x < 0) p.x = w;
-      if (p.x > w) p.x = 0;
-      if (p.y < 0) p.y = h;
-      if (p.y > h) p.y = 0;
-      ctx.beginPath();
-      ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
-      ctx.fill();
-    }
-    requestAnimationFrame(draw);
-  }
-  draw();
+  const video = document.querySelector('.hero-video');
+  if (!video) return;
+  video.play().catch(() => {
+    video.style.display = 'none';
+    const hero = document.querySelector('.hero');
+    hero.style.backgroundImage = "url('./hero-poster.jpg')";
+    hero.style.backgroundSize = 'cover';
+    hero.style.backgroundPosition = 'center';
+  });
 })();
 
 /* ── Navigation: scroll spy + blur ── */
