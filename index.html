@@ -432,37 +432,47 @@ h1, h2, h3 { font-family: var(--font-heading); font-weight: 700; line-height: 1.
 .service-link:hover { gap: 8px; }
 
 /* ═══════════════════════════════════════════
-   STATS
+   POURQUOI NOUS
    ═══════════════════════════════════════════ */
-.stats { background: var(--nt-bg); }
-.stats-grid {
+.why-us { background: var(--nt-bg); }
+.why-us-grid {
   max-width: var(--max-w);
   margin: 0 auto;
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  gap: 32px;
-  text-align: center;
+  gap: 24px;
 }
-@media (max-width: 768px) { .stats-grid { grid-template-columns: repeat(2, 1fr); gap: 40px; } }
-.stat-item {}
-.stat-number {
-  font-family: var(--font-heading);
-  font-size: clamp(2.5rem, 5vw, 4rem);
-  font-weight: 700;
-  color: var(--nt-text);
-  line-height: 1;
+@media (max-width: 1024px) { .why-us-grid { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 600px) { .why-us-grid { grid-template-columns: 1fr; max-width: 480px; } }
+.why-us-card {
+  background: var(--nt-surface);
+  border-radius: var(--radius);
+  padding: 32px 24px;
+  box-shadow: var(--shadow);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  display: flex;
+  flex-direction: column;
 }
-.stat-suffix {
-  font-family: var(--font-heading);
-  font-size: clamp(1.2rem, 2vw, 1.6rem);
+.why-us-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 32px rgba(0, 102, 255, 0.1);
+}
+.why-us-icon {
+  width: 44px;
+  height: 44px;
   color: var(--nt-accent);
-  font-weight: 700;
-  vertical-align: super;
+  margin-bottom: 20px;
+  flex-shrink: 0;
 }
-.stat-label {
+.why-us-card h3 {
+  font-size: 1.1rem;
+  color: var(--nt-text);
+  margin-bottom: 8px;
+}
+.why-us-card p {
+  font-size: 0.9rem;
   color: var(--nt-secondary);
-  font-size: 0.95rem;
-  margin-top: 8px;
+  line-height: 1.6;
 }
 
 /* ═══════════════════════════════════════════
@@ -764,6 +774,91 @@ h1, h2, h3 { font-family: var(--font-heading); font-weight: 700; line-height: 1.
 .btn-outline-dark:hover { border-color: var(--nt-accent); color: var(--nt-accent); }
 
 /* ═══════════════════════════════════════════
+   PORTFOLIO
+   ═══════════════════════════════════════════ */
+.portfolio { background: var(--nt-surface); }
+.portfolio-grid {
+  max-width: var(--max-w);
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 32px;
+}
+@media (max-width: 1024px) { .portfolio-grid { grid-template-columns: 1fr; max-width: 560px; } }
+.portfolio-card {
+  background: var(--nt-bg);
+  border-radius: var(--radius);
+  overflow: hidden;
+  box-shadow: var(--shadow);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  display: flex;
+  flex-direction: column;
+}
+.portfolio-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-lg); }
+.portfolio-img {
+  position: relative;
+  overflow: hidden;
+  aspect-ratio: 16 / 9;
+}
+.portfolio-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.4s ease;
+}
+.portfolio-card:hover .portfolio-img img { transform: scale(1.02); }
+.portfolio-body {
+  padding: 28px 24px;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+.portfolio-body h3 {
+  font-size: 1.2rem;
+  margin-bottom: 4px;
+  color: var(--nt-text);
+}
+.portfolio-category {
+  font-size: 0.82rem;
+  color: var(--nt-accent);
+  font-weight: 600;
+  margin-bottom: 12px;
+}
+.portfolio-body p {
+  font-size: 0.9rem;
+  color: var(--nt-secondary);
+  line-height: 1.6;
+  flex: 1;
+  margin-bottom: 16px;
+}
+.portfolio-status {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.78rem;
+  font-weight: 600;
+  padding: 5px 14px;
+  border-radius: 20px;
+  align-self: flex-start;
+}
+.portfolio-status--live {
+  color: #16a34a;
+  background: rgba(22,163,74,0.1);
+}
+.portfolio-status--wip {
+  color: #d97706;
+  background: rgba(217,119,6,0.1);
+}
+.portfolio-status-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  display: inline-block;
+}
+.portfolio-status--live .portfolio-status-dot { background: #16a34a; }
+.portfolio-status--wip .portfolio-status-dot { background: #d97706; }
+
+/* ═══════════════════════════════════════════
    CONTACT
    ═══════════════════════════════════════════ */
 .contact { background: var(--nt-bg); }
@@ -1042,108 +1137,6 @@ h1, h2, h3 { font-family: var(--font-heading); font-weight: 700; line-height: 1.
 .modal ul { padding-left: 20px; }
 .modal ul li { list-style: disc; }
 
-.carousel-wrapper { position: relative; }
-.carousel-track {
-  display: flex; gap: 24px;
-  overflow-x: auto; scroll-snap-type: x mandatory;
-  scrollbar-width: none; scroll-behavior: smooth;
-  padding: 8px 4px 16px;
-}
-.carousel-track::-webkit-scrollbar { display: none; }
-.project-card {
-  flex: 0 0 calc(33.333% - 16px); min-width: 280px;
-  background: var(--nt-surface); border: 1px solid var(--nt-border);
-  border-radius: 16px; overflow: hidden; scroll-snap-align: start;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-.project-card:hover {
-  transform: translateY(-6px);
-  box-shadow: 0 20px 48px rgba(0,0,0,0.1);
-}
-.project-preview {
-  height: 220px; position: relative;
-  display: flex; flex-direction: column;
-  border-radius: 16px 16px 0 0; overflow: hidden;
-}
-.preview-emoji {
-  position: absolute; bottom: 12px; right: 16px;
-  font-size: 2rem; opacity: 0.6;
-}
-.mockup-screen {
-  width: 75%; margin: auto;
-  background: rgba(255,255,255,0.06);
-  border: 1px solid rgba(255,255,255,0.12);
-  border-radius: 8px; overflow: hidden;
-}
-.mockup-topbar {
-  display: flex; gap: 5px; padding: 8px 10px;
-  background: rgba(0,0,0,0.3);
-}
-.mockup-dot {
-  width: 7px; height: 7px; border-radius: 50%;
-  background: rgba(255,255,255,0.25);
-}
-.mockup-body {
-  padding: 10px; display: flex;
-  flex-direction: column; gap: 7px;
-}
-.mkp-title { height: 10px; border-radius: 4px; width: 70%; }
-.mkp-hero { height: 36px; border-radius: 4px; }
-.mkp-hero.orange { background: rgba(255,107,0,0.6); }
-.mkp-row { display: flex; gap: 6px; }
-.mkp-block { height: 22px; border-radius: 4px; flex: 1; }
-.mkp-block.small { flex: 0 0 30%; }
-.mkp-block.pink  { background: rgba(255,105,180,0.35); }
-.mkp-block.blue  { background: rgba(0,102,255,0.35); }
-.mkp-block.green { background: rgba(46,125,50,0.45); }
-.mkp-block.dark  { background: rgba(255,255,255,0.08); }
-.mkp-btn { height: 14px; border-radius: 6px; width: 50%; margin-top: 2px; }
-.mkp-btn.pink   { background: rgba(255,105,180,0.6); }
-.mkp-btn.orange { background: rgba(255,107,0,0.6); }
-.mkp-qr { display: flex; justify-content: center; padding: 4px 0; }
-.qr-grid {
-  display: grid; grid-template-columns: repeat(3,10px);
-  grid-template-rows: repeat(3,10px); gap: 2px;
-}
-.qr-grid span { background: rgba(0,102,255,0.6); border-radius: 1px; }
-.mkp-chart {
-  display: flex; align-items: flex-end;
-  gap: 4px; height: 36px; padding: 0 4px;
-}
-.mkp-chart span {
-  flex: 1; background: rgba(46,125,50,0.6);
-  border-radius: 2px 2px 0 0;
-}
-.project-info { padding: 20px; }
-.project-tag {
-  font-size: 11px; font-weight: 700; color: var(--nt-accent);
-  text-transform: uppercase; letter-spacing: 0.08em;
-}
-.project-info h3 {
-  font-family: var(--nt-font-title); font-size: 1.15rem;
-  color: var(--nt-text); margin: 8px 0;
-}
-.project-info p {
-  font-size: 0.875rem; color: var(--nt-secondary); line-height: 1.6;
-}
-.carousel-btn {
-  position: absolute; top: 45%; transform: translateY(-50%);
-  background: var(--nt-surface); border: 1px solid var(--nt-border);
-  border-radius: 50%; width: 44px; height: 44px;
-  font-size: 1.1rem; cursor: pointer;
-  box-shadow: 0 4px 16px rgba(0,0,0,0.1);
-  transition: all 0.2s; z-index: 2;
-}
-.carousel-btn:hover {
-  background: var(--nt-accent); color: white;
-  border-color: var(--nt-accent);
-}
-.carousel-prev { left: -20px; }
-.carousel-next { right: -20px; }
-@media (max-width: 768px) {
-  .project-card { flex: 0 0 82vw; }
-  .carousel-btn { display: none; }
-}
 </style>
 </head>
 
@@ -1243,28 +1236,62 @@ h1, h2, h3 { font-family: var(--font-heading); font-weight: 700; line-height: 1.
   </div>
 </section>
 
-<!-- ═══════════ STATS ═══════════ -->
-<section class="section stats" id="stats">
+<!-- ═══════════ POURQUOI NOUS ═══════════ -->
+<section class="section why-us" id="pourquoi-nous">
   <div class="section-header reveal">
-    <h2>En chiffres</h2>
+    <h2>Pourquoi nous choisir</h2>
+    <p>Les engagements qui font la différence pour votre projet.</p>
   </div>
-  <div class="stats-grid">
-    <div class="stat-item reveal" style="transition-delay: 0ms;">
-      <div class="stat-number"><span class="counter" data-target="1">0</span><span class="stat-suffix">er</span></div>
-      <p class="stat-label">App en production</p>
+  <div class="why-us-grid">
+
+    <div class="why-us-card reveal">
+      <svg class="why-us-icon" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="24" cy="24" r="20"/><circle cx="24" cy="24" r="13"/><circle cx="24" cy="24" r="6"/></svg>
+      <h3>Sur mesure</h3>
+      <p>Aucune solution clé en main. Chaque projet est pensé pour votre métier, vos outils, votre façon de travailler.</p>
     </div>
-    <div class="stat-item reveal" style="transition-delay: 100ms;">
-      <div class="stat-number"><span class="counter" data-target="4">0</span></div>
-      <p class="stat-label">Services</p>
+
+    <div class="why-us-card reveal">
+      <svg class="why-us-icon" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M24 4C24 4 24 20 24 20"/><path d="M24 20L14 14"/><path d="M24 20L34 14"/><circle cx="24" cy="38" r="6"/><path d="M24 32V20"/></svg>
+      <h3>Proximité locale</h3>
+      <p>Basé à Saint-Gaudens, disponible en Occitanie et en Outre-mer à distance. Échanges directs, sans intermédiaire.</p>
     </div>
-    <div class="stat-item reveal" style="transition-delay: 200ms;">
-      <div class="stat-number"><span class="counter" data-target="24">0</span><span class="stat-suffix">h</span></div>
-      <p class="stat-label">Réponse</p>
+
+    <div class="why-us-card reveal">
+      <svg class="why-us-icon" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M28 6L18 26H30L20 42"/></svg>
+      <h3>Livraison rapide</h3>
+      <p>Site vitrine livré en 2 semaines. Application métier sur mesure en 4 à 6 semaines selon périmètre.</p>
     </div>
-    <div class="stat-item reveal" style="transition-delay: 300ms;">
-      <div class="stat-number"><span class="counter" data-target="100">0</span><span class="stat-suffix">%</span></div>
-      <p class="stat-label">Sur mesure</p>
+
+    <div class="why-us-card reveal">
+      <svg class="why-us-icon" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M36 16A12 12 0 1 1 12 16"/><path d="M12 32A12 12 0 1 1 36 32"/><path d="M36 16L40 12M36 16L32 12"/><path d="M12 32L8 36M12 32L16 36"/></svg>
+      <h3>Maintenu dans la durée</h3>
+      <p>Abonnement mensuel pour mises à jour, sécurité, évolutions. Votre outil reste vivant, pas abandonné après livraison.</p>
     </div>
+
+    <div class="why-us-card reveal">
+      <svg class="why-us-icon" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="8" y="6" width="32" height="36" rx="3"/><path d="M16 16H32"/><path d="M16 24H32"/><path d="M16 32H26"/></svg>
+      <h3>Contrat clair</h3>
+      <p>Contrat de prestation + cahier des charges détaillé signés avant développement. Aucune surprise, aucun flou.</p>
+    </div>
+
+    <div class="why-us-card reveal">
+      <svg class="why-us-icon" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M24 4L6 14V24C6 35 14 43 24 46C34 43 42 35 42 24V14L24 4Z"/><path d="M17 24L22 29L31 20"/></svg>
+      <h3>Acompte maîtrisé</h3>
+      <p>30% à la signature, solde à la livraison. Vous gardez le contrôle jusqu'au bout.</p>
+    </div>
+
+    <div class="why-us-card reveal">
+      <svg class="why-us-icon" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 10L10 16"/><path d="M32 10L38 16"/><path d="M16 38L10 32"/><path d="M32 38L38 32"/><path d="M14 20V28"/><path d="M20 14H28"/><path d="M34 20V28"/><path d="M20 34H28"/></svg>
+      <h3>Votre code, vos données</h3>
+      <p>Code source remis sur demande. Données exportables à tout moment. Zéro lock-in technique.</p>
+    </div>
+
+    <div class="why-us-card reveal">
+      <svg class="why-us-icon" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="12" y="22" width="24" height="20" rx="3"/><path d="M18 22V14A6 6 0 0 1 30 14V22"/><circle cx="24" cy="33" r="2"/><path d="M24 35V38"/></svg>
+      <h3>Assurance pro active</h3>
+      <p>Responsabilité civile professionnelle Hiscox/Orus. Votre projet est couvert, en France comme à l'international.</p>
+    </div>
+
   </div>
 </section>
 
@@ -1428,147 +1455,59 @@ h1, h2, h3 { font-family: var(--font-heading); font-weight: 700; line-height: 1.
   </div>
 </section>
 
-<!-- ═══════════ RÉALISATIONS ═══════════ -->
-<section class="section section-alt" id="realisations">
-  <div class="section-inner">
-    <div class="section-header reveal">
-      <h2>Nos réalisations</h2>
-      <p>Des outils réels, en production, utilisés chaque jour.</p>
-    </div>
-    <div class="carousel-wrapper">
-      <div class="carousel-track" id="carousel-track">
+<!-- ═══════════ PORTFOLIO ═══════════ -->
+<section class="section portfolio" id="portfolio">
+  <div class="section-header reveal">
+    <h2>Nos réalisations</h2>
+    <p>Des projets concrets, livrés et utilisés au quotidien par nos clients.</p>
+  </div>
+  <div class="portfolio-grid">
 
-        <div class="project-card reveal">
-          <div class="project-preview" style="background:linear-gradient(145deg,#1a0a1e 0%,#3d1a4a 100%);">
-            <div class="mockup-screen">
-              <div class="mockup-topbar">
-                <span class="mockup-dot"></span>
-                <span class="mockup-dot"></span>
-                <span class="mockup-dot"></span>
-              </div>
-              <div class="mockup-body">
-                <div class="mkp-title" style="background:rgba(255,105,180,0.8);"></div>
-                <div class="mkp-row">
-                  <div class="mkp-block pink"></div>
-                  <div class="mkp-block pink small"></div>
-                </div>
-                <div class="mkp-row">
-                  <div class="mkp-block dark"></div>
-                  <div class="mkp-block dark"></div>
-                  <div class="mkp-block dark"></div>
-                </div>
-                <div class="mkp-btn pink"></div>
-              </div>
-            </div>
-            <span class="preview-emoji">💅</span>
-          </div>
-          <div class="project-info">
-            <span class="project-tag">Application métier</span>
-            <h3>App Onglerie</h3>
-            <p>Réservations, planning, espace client, programme fidélité. Accessible mobile et desktop.</p>
-          </div>
-        </div>
-
-        <div class="project-card reveal reveal-delay-1">
-          <div class="project-preview" style="background:linear-gradient(145deg,#0a1628 0%,#0d2d5e 100%);">
-            <div class="mockup-screen">
-              <div class="mockup-topbar">
-                <span class="mockup-dot"></span>
-                <span class="mockup-dot"></span>
-                <span class="mockup-dot"></span>
-              </div>
-              <div class="mockup-body">
-                <div class="mkp-title" style="background:rgba(0,102,255,0.8);"></div>
-                <div class="mkp-row">
-                  <div class="mkp-block blue"></div>
-                  <div class="mkp-block blue small"></div>
-                </div>
-                <div class="mkp-row">
-                  <div class="mkp-block dark"></div>
-                  <div class="mkp-block dark"></div>
-                </div>
-                <div class="mkp-qr">
-                  <div class="qr-grid">
-                    <span></span><span></span><span></span>
-                    <span></span><span></span><span></span>
-                    <span></span><span></span><span></span>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <span class="preview-emoji">📦</span>
-          </div>
-          <div class="project-info">
-            <span class="project-tag">Application métier</span>
-            <h3>Gestion Livraisons & Événements</h3>
-            <p>Scanner QR, dashboard admin, gestion des réservations. PWA installable sur mobile.</p>
-          </div>
-        </div>
-
-        <div class="project-card reveal reveal-delay-2">
-          <div class="project-preview" style="background:linear-gradient(145deg,#0a0a0a 0%,#1a1a1a 100%);">
-            <div class="mockup-screen">
-              <div class="mockup-topbar">
-                <span class="mockup-dot"></span>
-                <span class="mockup-dot"></span>
-                <span class="mockup-dot"></span>
-              </div>
-              <div class="mockup-body">
-                <div class="mkp-hero orange"></div>
-                <div class="mkp-row">
-                  <div class="mkp-block dark"></div>
-                  <div class="mkp-block dark"></div>
-                  <div class="mkp-block dark"></div>
-                </div>
-                <div class="mkp-btn orange"></div>
-              </div>
-            </div>
-            <span class="preview-emoji">🎬</span>
-          </div>
-          <div class="project-info">
-            <span class="project-tag">Site vitrine</span>
-            <h3>Studio Créatif</h3>
-            <p>Site vitrine premium avec animations avancées, réservation en ligne et galerie interactive.</p>
-          </div>
-        </div>
-
-        <div class="project-card reveal reveal-delay-3">
-          <div class="project-preview" style="background:linear-gradient(145deg,#0f1f0f 0%,#1a3a1a 100%);">
-            <div class="mockup-screen">
-              <div class="mockup-topbar">
-                <span class="mockup-dot"></span>
-                <span class="mockup-dot"></span>
-                <span class="mockup-dot"></span>
-              </div>
-              <div class="mockup-body">
-                <div class="mkp-title" style="background:rgba(46,125,50,0.8);"></div>
-                <div class="mkp-chart">
-                  <span style="height:60%"></span>
-                  <span style="height:80%"></span>
-                  <span style="height:45%"></span>
-                  <span style="height:95%"></span>
-                  <span style="height:70%"></span>
-                </div>
-                <div class="mkp-row">
-                  <div class="mkp-block green small"></div>
-                  <div class="mkp-block green small"></div>
-                  <div class="mkp-block green small"></div>
-                </div>
-              </div>
-            </div>
-            <span class="preview-emoji">📊</span>
-          </div>
-          <div class="project-info">
-            <span class="project-tag">Outil de gestion</span>
-            <h3>Tableau de Bord Comptable</h3>
-            <p>Suivi des recettes, exports automatiques et tableau de bord pour restaurateur.</p>
-          </div>
-        </div>
-
+    <div class="portfolio-card reveal">
+      <div class="portfolio-img">
+        <picture>
+          <source srcset="./portfolio-lumera.webp" type="image/webp">
+          <img src="./portfolio-lumera.png" alt="Lumera Studio — site vitrine" loading="lazy" width="1280" height="726">
+        </picture>
       </div>
-      <button class="carousel-btn carousel-prev" onclick="scrollCarousel(-1)" aria-label="Précédent">&#8592;</button>
-      <button class="carousel-btn carousel-next" onclick="scrollCarousel(1)" aria-label="Suivant">&#8594;</button>
+      <div class="portfolio-body">
+        <h3>Lumera Studio</h3>
+        <p class="portfolio-category">Studio photo &amp; vidéo · Toulouse</p>
+        <p>Site vitrine premium style cinématique pour un studio créatif : Cyclorama, Studio Podcast et location de matériel. Système de réservation en ligne avec paiement Stripe intégré.</p>
+        <span class="portfolio-status portfolio-status--wip"><span class="portfolio-status-dot"></span>En cours de finalisation</span>
+      </div>
     </div>
+
+    <div class="portfolio-card reveal">
+      <div class="portfolio-img">
+        <picture>
+          <source srcset="./portfolio-glow-home.webp" type="image/webp">
+          <img src="./portfolio-glow-home.png" alt="Glow Nails — application métier PWA" loading="lazy" width="1280" height="632">
+        </picture>
+      </div>
+      <div class="portfolio-body">
+        <h3>Glow Nails</h3>
+        <p class="portfolio-category">Prothésiste ongulaire · Saint-Gaudens</p>
+        <p>Application métier PWA avec espace cliente (réservation, programme fidélité GN Privilège, galerie) et espace gérance (gestion clientes, rendez-vous, statistiques).</p>
+        <span class="portfolio-status portfolio-status--live"><span class="portfolio-status-dot"></span>En production</span>
+      </div>
+    </div>
+
+    <div class="portfolio-card reveal">
+      <div class="portfolio-img">
+        <picture>
+          <source srcset="./portfolio-laccess.webp" type="image/webp">
+          <img src="./portfolio-laccess.png" alt="L'Access — dashboard admin" loading="lazy" width="1280" height="640">
+        </picture>
+      </div>
+      <div class="portfolio-body">
+        <h3>L'Access</h3>
+        <p class="portfolio-category">Gestion d'accès événementiel · Champagné</p>
+        <p>Dashboard admin pour gestion de réservations événementielles : scan QR code, export CSV, envoi de tickets par email, suivi temps réel des validations.</p>
+        <span class="portfolio-status portfolio-status--live"><span class="portfolio-status-dot"></span>En production</span>
+      </div>
+    </div>
+
   </div>
 </section>
 
@@ -1903,37 +1842,6 @@ h1, h2, h3 { font-family: var(--font-heading); font-weight: 700; line-height: 1.
   reveals.forEach(el => observer.observe(el));
 })();
 
-/* ── Animated Counters ── */
-(function() {
-  const counters = document.querySelectorAll('.counter');
-  let started = false;
-
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting && !started) {
-        started = true;
-        counters.forEach(counter => {
-          const target = parseInt(counter.dataset.target);
-          const duration = 1500;
-          const start = performance.now();
-
-          function update(now) {
-            const elapsed = now - start;
-            const progress = Math.min(elapsed / duration, 1);
-            const eased = 1 - Math.pow(1 - progress, 3);
-            counter.textContent = Math.round(target * eased);
-            if (progress < 1) requestAnimationFrame(update);
-          }
-          requestAnimationFrame(update);
-        });
-      }
-    });
-  }, { threshold: 0.3 });
-
-  const statsSection = document.getElementById('stats');
-  if (statsSection) observer.observe(statsSection);
-})();
-
 /* ── Contact Form ── */
 (function() {
   const form = document.getElementById('contactForm');
@@ -1990,11 +1898,6 @@ document.querySelectorAll('.modal-overlay').forEach(overlay => {
   });
 });
 
-/* ── Carousel ── */
-function scrollCarousel(dir) {
-  const track = document.getElementById('carousel-track');
-  track.scrollBy({ left: dir * 330, behavior: 'smooth' });
-}
 </script>
 </body>
 </html>
