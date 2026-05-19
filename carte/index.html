@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Marc-Antoine Pavadé - Nine Technologies</title>
+<meta name="description" content="Marc-Antoine Pavadé, fondateur de Nine Technologies. Applications métier et sites web sur mesure pour TPE et PME en Occitanie et DOM-TOM.">
+<meta name="theme-color" content="#F7F4EF">
+<meta name="robots" content="noindex">
+<meta property="og:title" content="Marc-Antoine Pavadé - Nine Technologies">
+<meta property="og:description" content="Applications métier et sites web sur mesure pour TPE et PME.">
+<meta property="og:type" content="profile">
+<meta property="og:url" content="https://ninetechnologies.fr/carte/">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --nt-bg:#F7F4EF;
+    --nt-accent:#0066FF;
+    --nt-accent-hover:#0052CC;
+    --nt-text:#1A1A2E;
+    --nt-text-secondary:#6B7280;
+    --nt-border:#E5E7EB;
+    --nt-surface:#FFFFFF;
+    --nt-radius-sm:8px;
+    --nt-radius-md:12px;
+    --nt-font-title:'Playfair Display',Georgia,'Times New Roman',serif;
+    --nt-font-body:'DM Sans',-apple-system,BlinkMacSystemFont,'Segoe UI',system-ui,sans-serif;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html,body{height:100%}
+  body{
+    font-family:var(--nt-font-body);
+    color:var(--nt-text);
+    background:var(--nt-bg);
+    background-image:radial-gradient(120% 80% at 50% 0%, rgba(255,255,255,.6) 0%, rgba(247,244,239,0) 60%);
+    -webkit-font-smoothing:antialiased;
+    text-rendering:optimizeLegibility;
+    min-height:100dvh;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
+    padding:40px 22px calc(34px + env(safe-area-inset-bottom));
+  }
+  .wrap{width:100%;max-width:380px;text-align:center}
+  .reveal{opacity:0;transform:translateY(16px);animation:rise .6s cubic-bezier(.4,0,.2,1) forwards}
+  .d1{animation-delay:.05s}.d2{animation-delay:.15s}.d3{animation-delay:.25s}
+  .d4{animation-delay:.35s}.d5{animation-delay:.45s}.d6{animation-delay:.55s}
+  @keyframes rise{to{opacity:1;transform:translateY(0)}}
+
+  .logo{height:42px;width:auto;margin:0 auto 26px;display:block}
+  .kicker{
+    font-size:12px;font-weight:600;letter-spacing:.22em;text-transform:uppercase;
+    color:var(--nt-text-secondary);margin-bottom:14px;
+  }
+  h1{
+    font-family:var(--nt-font-title);font-weight:700;
+    font-size:34px;line-height:1.15;letter-spacing:-.02em;margin-bottom:10px;
+  }
+  .role{font-size:15px;color:var(--nt-text-secondary);font-weight:500;margin-bottom:4px}
+  .pitch{
+    font-size:15px;line-height:1.55;color:var(--nt-text-secondary);
+    max-width:300px;margin:14px auto 32px;
+  }
+  .rule{width:40px;height:2px;background:var(--nt-accent);border-radius:2px;margin:0 auto 32px}
+
+  .actions{display:flex;flex-direction:column;gap:12px}
+  .btn{
+    display:flex;align-items:center;justify-content:center;gap:10px;
+    height:54px;border-radius:var(--nt-radius-sm);
+    font-family:var(--nt-font-body);font-weight:600;font-size:15px;
+    text-decoration:none;cursor:pointer;border:1px solid transparent;
+    transition:background .2s ease,border-color .2s ease,transform .15s ease;
+    -webkit-tap-highlight-color:transparent;
+  }
+  .btn:active{transform:scale(.985)}
+  .btn-primary{background:var(--nt-accent);color:#fff}
+  .btn-primary:hover{background:var(--nt-accent-hover)}
+  .btn-secondary{background:var(--nt-surface);color:var(--nt-text);border-color:var(--nt-border)}
+  .btn-secondary:hover{border-color:#cdd2da}
+  .row{display:flex;gap:12px}
+  .row .btn{flex:1}
+  .btn svg{flex:none}
+
+  footer{
+    margin-top:34px;font-size:12px;letter-spacing:.04em;
+    color:var(--nt-text-secondary);
+  }
+  footer a{color:var(--nt-text-secondary);text-decoration:none;font-weight:600}
+
+  @media (prefers-reduced-motion:reduce){
+    .reveal{animation:none;opacity:1;transform:none}
+    .btn:active{transform:none}
+  }
+</style>
+</head>
+<body>
+  <main class="wrap">
+    <img class="logo reveal d1" src="/logo.png" alt="Nine Technologies"
+         onerror="this.style.display='none'">
+    <p class="kicker reveal d2">Nine Technologies</p>
+    <h1 class="reveal d2">Marc-Antoine Pavadé</h1>
+    <p class="role reveal d3">Fondateur</p>
+    <p class="pitch reveal d3">Applications métier et sites web sur mesure pour les TPE et PME, en Occitanie et dans les DOM-TOM.</p>
+    <div class="rule reveal d4"></div>
+
+    <div class="actions">
+      <a class="btn btn-primary reveal d4" href="/carte/marc-antoine-pavade.vcf" download>
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><line x1="19" y1="8" x2="19" y2="14"/><line x1="22" y1="11" x2="16" y2="11"/></svg>
+        Enregistrer mon contact
+      </a>
+      <div class="row">
+        <a class="btn btn-secondary reveal d5" href="tel:+33604114284">
+          <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+          Appeler
+        </a>
+        <a class="btn btn-secondary reveal d5" href="https://wa.me/33604114284" target="_blank" rel="noopener">
+          <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
+          WhatsApp
+        </a>
+      </div>
+      <a class="btn btn-secondary reveal d6" href="https://ninetechnologies.fr" target="_blank" rel="noopener">
+        Voir le site
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg>
+      </a>
+    </div>
+
+    <footer class="reveal d6">
+      <a href="https://ninetechnologies.fr">ninetechnologies.fr</a>
+    </footer>
+  </main>
+</body>
+</html>

@@ -1,0 +1,11 @@
+BEGIN:VCARD
+VERSION:3.0
+N:Pavadé;Marc-Antoine;;;
+FN:Marc-Antoine Pavadé
+ORG:Nine Technologies
+TITLE:Fondateur
+TEL;TYPE=CELL,VOICE:+33604114284
+EMAIL;TYPE=WORK,INTERNET:marc-antoine@ninetechnologies.fr
+URL:https://ninetechnologies.fr
+NOTE:Applications métier et sites web sur mesure pour TPE et PME, en Occitanie et dans les DOM-TOM.
+END:VCARD
